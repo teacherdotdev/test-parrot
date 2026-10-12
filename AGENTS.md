@@ -6,7 +6,7 @@ A Vite + React app for authoring test questions — Multiple Choice, True/False,
 
 ### Issue tracker
 
-Issues live as GitHub issues in `teacherdotdev/test-version-generator`, managed via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+Issues live as GitHub issues in `teacherdotdev/test-parrot`, managed via the `gh` CLI. See `docs/agents/issue-tracker.md`.
 
 ### Browser assertions
 
