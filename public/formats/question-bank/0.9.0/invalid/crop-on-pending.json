@@ -1,0 +1,47 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.9.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "Picture Crop on a Pending Image",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "short-answer",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "What shape does the picture show?"
+                }
+              ]
+            },
+            {
+              "type": "block-image",
+              "alt": "A blue rectangle",
+              "authoredSize": 0.4,
+              "crop": {
+                "left": 0.25,
+                "top": 0.25,
+                "right": 0.75,
+                "bottom": 0.75
+              },
+              "pending": {
+                "image": 1
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "media": []
+}

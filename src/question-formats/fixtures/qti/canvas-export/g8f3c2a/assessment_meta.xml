@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz identifier="g8f3c2a" xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd">
+  <title>Unit 1 Science Quiz</title>
+  <description></description>
+  <shuffle_answers>false</shuffle_answers>
+  <scoring_policy>keep_highest</scoring_policy>
+  <quiz_type>assignment</quiz_type>
+  <points_possible>11.0</points_possible>
+  <allowed_attempts>1</allowed_attempts>
+  <assignment_group_identifierref>g11aa</assignment_group_identifierref>
+</quiz>

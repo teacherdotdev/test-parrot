@@ -1,0 +1,51 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.2.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "Short Answer",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "short-answer",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Name the process plants use to make food."
+                }
+              ]
+            }
+          ]
+        },
+        "difficulty": "easy",
+        "topics": [
+          "Biology"
+        ],
+        "suggestedAnswer": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Photosynthesis."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "media": []
+}

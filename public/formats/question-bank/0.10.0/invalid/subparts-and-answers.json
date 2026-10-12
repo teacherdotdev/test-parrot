@@ -1,0 +1,230 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.10.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "Subparts",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multipart",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A class counted the frogs at a pond each month for a year."
+                }
+              ]
+            }
+          ]
+        },
+        "difficulty": "medium",
+        "topics": [
+          "Ecology"
+        ],
+        "parts": [
+          {
+            "id": "q1-s1",
+            "type": "short-answer",
+            "stem": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Name one thing a frog eats."
+                    }
+                  ]
+                }
+              ]
+            },
+            "suggestedAnswer": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Insects."
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "q1-s2",
+            "stem": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "The count was highest in April."
+                    }
+                  ]
+                }
+              ]
+            },
+            "subparts": [
+              {
+                "id": "q1-s2-s1",
+                "type": "multiple-choice",
+                "stem": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "In which season is April?"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "choices": [
+                  {
+                    "id": "q1-s2-s1-c1",
+                    "content": {
+                      "type": "document",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Spring"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "correct": true
+                  },
+                  {
+                    "id": "q1-s2-s1-c2",
+                    "content": {
+                      "type": "document",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Autumn"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "correct": false
+                  },
+                  {
+                    "id": "q1-s2-s1-c3",
+                    "content": {
+                      "type": "document",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "None of the above"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "correct": false,
+                    "locked": true
+                  }
+                ]
+              },
+              {
+                "id": "q1-s2-s2",
+                "type": "short-answer",
+                "stem": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Suggest why more frogs were seen then."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "suggestedAnswer": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Frogs gather at ponds to breed in spring."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "q1-s2-s3",
+                "type": "short-answer",
+                "stem": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Describe how the class could make its count more reliable."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "type": "short-answer",
+            "suggestedAnswer": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "A Part that holds Subparts answers nothing itself."
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "media": []
+}

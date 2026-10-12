@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<qti-assessment-item xmlns="http://www.imsglobal.org/xsd/imsqtiasi_v3p0" identifier="q3-city" title="Rivers" adaptive="false" time-dependent="false">
+  <qti-response-declaration identifier="RESPONSE" cardinality="single" base-type="string">
+    <qti-mapping default-value="0">
+      <qti-map-entry map-key="Thames" mapped-value="1" case-sensitive="false"/>
+      <qti-map-entry map-key="River Thames" mapped-value="1" case-sensitive="false"/>
+    </qti-mapping>
+  </qti-response-declaration>
+  <qti-response-declaration identifier="RESPONSE2" cardinality="single" base-type="identifier">
+    <qti-correct-response><qti-value>Y</qti-value></qti-correct-response>
+  </qti-response-declaration>
+  <qti-outcome-declaration identifier="SCORE" cardinality="single" base-type="float"/>
+  <qti-item-body>
+    <p>London stands on the <qti-text-entry-interaction response-identifier="RESPONSE" expected-length="12"/>, and Paris on the
+    <qti-inline-choice-interaction response-identifier="RESPONSE2" shuffle="false">
+      <qti-inline-choice identifier="X">Rhine</qti-inline-choice>
+      <qti-inline-choice identifier="Y">Seine</qti-inline-choice>
+    </qti-inline-choice-interaction>.</p>
+  </qti-item-body>
+  <qti-response-processing template="https://purl.imsglobal.org/spec/qti/v3p0/rptemplates/map_response.xml"/>
+</qti-assessment-item>

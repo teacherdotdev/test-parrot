@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://testparrot.com/formats/package/0.1.0/schema.json",
+  "title": "Test Parrot Package 0.1.0",
+  "description": "A bundle of one or more Question Bank Records, each under a package-local bank id, and any number of Exam Records that reference Questions in them. Each embedded record is validated against the schema of its own format and version.",
+  "type": "object",
+  "required": [
+    "format",
+    "formatVersion",
+    "generator",
+    "requiredFeatures",
+    "questionBanks",
+    "exams"
+  ],
+  "properties": {
+    "format": {
+      "const": "test-parrot/package"
+    },
+    "formatVersion": {
+      "const": "0.1.0"
+    },
+    "generator": {
+      "type": "object",
+      "required": [
+        "name",
+        "version"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "requiredFeatures": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "questionBanks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "record"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "record": {
+            "description": "A complete Question Bank Record, validated against the schema of its own formatVersion, for example https://testparrot.com/formats/question-bank/0.8.0/schema.json.",
+            "type": "object",
+            "required": [
+              "format",
+              "formatVersion"
+            ],
+            "properties": {
+              "format": {
+                "const": "test-parrot/question-bank"
+              },
+              "formatVersion": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "exams": {
+      "type": "array",
+      "items": {
+        "description": "A complete Exam Record, validated against the schema of its own formatVersion, for example https://testparrot.com/formats/exam/0.1.0/schema.json.",
+        "type": "object",
+        "required": [
+          "format",
+          "formatVersion"
+        ],
+        "properties": {
+          "format": {
+            "const": "test-parrot/exam"
+          },
+          "formatVersion": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

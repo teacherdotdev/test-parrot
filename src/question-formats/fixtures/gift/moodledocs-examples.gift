@@ -1,0 +1,174 @@
+// Every example on MoodleDocs' GIFT format page (docs.moodle.org/502/en/GIFT_format), in page order.
+$CATEGORY: tom/dick/harry
+
+// true/false
+::Q1:: 1+1=2 {T}
+
+// multiple choice with specified feedback for right and wrong answers
+::Q2:: What's between orange and green in the spectrum? 
+{ =yellow # right; good! ~red # wrong, it's yellow ~blue # wrong, it's yellow }
+
+// fill-in-the-blank
+::Q3:: Two plus {=two =2} equals four.
+
+// matching
+::Q4:: Which animal eats which food? { =cat -> cat food =dog -> dog food }
+
+// math range question
+::Q5:: What is a number from 1 to 5? {#3:2}
+
+// math range specified with interval end points
+::Q6:: What is a number from 1 to 5? {#1..5}
+
+// multiple numeric answers with partial credit and feedback
+::Q7:: When was Ulysses S. Grant born? {#
+         =1822:0      # Correct! Full credit.
+         =%50%1822:2  # He was born in 1822. Half credit for being close.
+}
+
+// essay
+::Q8:: How are you? {}
+
+Who's buried in Grant's tomb?{=Grant ~no one ~Napoleon ~Churchill ~Mother Teresa }
+
+// question: 1 name: Grants tomb
+::Grants tomb::Who is buried in Grant's tomb in New York City? {
+=Grant
+~No one
+#Was true for 12 years, but Grant's remains were buried in the tomb in 1897
+~Napoleon
+#He was buried in France
+~Churchill
+#He was buried in England
+~Mother Teresa
+#She was buried in India
+}
+
+What two people are entombed in Grant's tomb? {
+   ~%-100%No one
+   ~%50%Grant
+   ~%50%Grant's wife
+   ~%-100%Grant's father
+}
+
+// question: 0 name: TrueStatement using {T} style
+::TrueStatement about Grant::Grant was buried in a tomb in New York City.{T}
+
+// question: 0 name: FalseStatement using {FALSE} style
+::FalseStatement about sun::The sun rises in the West.{FALSE}
+
+Who's buried in Grant's tomb?{=Grant =Ulysses S. Grant =Ulysses Grant}
+
+Two plus two equals {=four =4}
+
+Match the following countries with their corresponding capitals. {
+   =Canada -> Ottawa
+   =Italy  -> Rome
+   =Japan  -> Tokyo
+   =India  -> New Delhi
+   }
+
+Moodle costs {~lots of money =nothing ~a small amount} to download from moodle.org.
+
+Mahatma Gandhi's birthday is an Indian holiday on  {
+~15th
+~3rd
+=2nd
+} of October.
+
+Since {
+  ~495 AD
+  =1066 AD
+  ~1215 AD
+  ~ 43 AD
+}
+the town of Hastings England has been "famous with visitors".
+
+When was Ulysses S. Grant born?{#1822:5}
+
+What is the value of pi (to 3 decimal places)? {#3.14159:0.0005}.
+
+What is the value of pi (to 3 decimal places)? {#3.141..3.142}.
+
+When was Ulysses S. Grant born? {#
+   =1822:0
+   =%50%1822:2
+}
+
+Write a short biography of Dag Hammarskjöld. {}
+
+Which answer equals 5? {
+   ~ \= 2 + 2
+   = \= 2 + 3
+   ~ \= 2 + 4
+}
+
+::GIFT Control Characters::
+Which of the following is NOT a control character for the GIFT import format? {
+  ~ \~     # \~ is a control character.
+  ~ \=     # \= is a control character.
+  ~ \#     # \# is a control character.
+  ~ \{     # \{ is a control character.
+  ~ \}     # \} is a control character.
+  = \      # Correct! \ (backslash) is not a control character. BUT,
+             it is used to escape the control characters.
+}
+
+::Kanji Origins::Japanese characters originally
+came from what country? {=China}
+
+::Thanksgiving Date::The American holiday of Thanksgiving is 
+celebrated on the {~second ~third =fourth} Thursday of November.
+
+What's the answer to this multiple-choice question? {
+  ~wrong answer#feedback comment on the wrong answer
+  ~another wrong answer#feedback comment on this wrong answer
+  =right answer#Very good!
+}
+
+//From The Hitchhiker's Guide to the Galaxy
+Deep Thought said " {
+  =forty two#Correct according to The Hitchhiker's Guide to the Galaxy!
+  =42#Correct, as told to Loonquawl and Phouchg
+  =forty-two#Correct!
+}  is the Ultimate Answer to the Ultimate Question of Life, The Universe, and Everything."
+
+42 is the Absolute Answer to everything.{
+FALSE#42is the Ultimate Answer.#You gave the right answer.}
+
+Difficult question.{~wrong answer ~%50%half credit answer =full credit answer}
+
+::Jesus' hometown::Jesus Christ was from {
+   ~Jerusalem#This was an important city, but the wrong answer.
+   ~%25%Bethlehem#He was born here, but not raised here.
+   ~%50%Galilee#You need to be more specific.
+   =Nazareth#Yes! That's right!
+}.
+
+::Jesus' hometown:: Jesus Christ was from {
+   =Nazareth#Yes! That's right!
+   =%75%Nazereth#Right, but misspelled.
+   =%25%Bethlehem#He was born here, but not raised here.
+}
+
+$CATEGORY: mycategory
+
+[markdown]The *American holiday of Thanksgiving* is celebrated on the {
+   ~second
+   ~third
+   =fourth
+} Thursday of November.
+
+What two people are entombed in Grant's tomb? {
+   ~No one
+   ~%50%Grant
+   ~%50%Grant's wife
+   ~Grant's father
+}
+
+What two people are entombed in Grant's tomb? {
+   ~%-50%No one
+   ~%50%Grant
+   ~%50%Grant's wife
+   ~%-50%Grant's father
+}

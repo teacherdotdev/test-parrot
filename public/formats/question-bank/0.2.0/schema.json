@@ -1,0 +1,462 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://testparrot.com/formats/question-bank/0.2.0/schema.json",
+  "title": "Test Parrot Question Bank Record 0.2.0",
+  "description": "The authoritative machine-readable record embedded in a Test Parrot Question Bank File.",
+  "type": "object",
+  "required": [
+    "format",
+    "formatVersion",
+    "generator",
+    "requiredFeatures",
+    "bank",
+    "media"
+  ],
+  "properties": {
+    "format": {
+      "const": "test-parrot/question-bank"
+    },
+    "formatVersion": {
+      "const": "0.2.0"
+    },
+    "generator": {
+      "type": "object",
+      "required": [
+        "name",
+        "version"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "requiredFeatures": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "bank": {
+      "type": "object",
+      "required": [
+        "name",
+        "questions"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "license": {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          }
+        },
+        "questions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/question"
+          }
+        }
+      }
+    },
+    "media": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/mediaAsset"
+      }
+    }
+  },
+  "$defs": {
+    "document": {
+      "type": "object",
+      "required": [
+        "type",
+        "content"
+      ],
+      "properties": {
+        "type": {
+          "const": "document"
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/node"
+          }
+        }
+      }
+    },
+    "mark": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "strong",
+            "emphasis",
+            "inline-code",
+            "strike",
+            "subscript",
+            "superscript",
+            "link"
+          ]
+        },
+        "href": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "link"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "href": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "href"
+            ]
+          }
+        }
+      ]
+    },
+    "node": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "paragraph",
+            "heading",
+            "blockquote",
+            "bullet-list",
+            "ordered-list",
+            "list-item",
+            "code-block",
+            "rule",
+            "table",
+            "table-row",
+            "table-cell",
+            "inline-math",
+            "display-math",
+            "hard-break",
+            "text",
+            "inline-image",
+            "block-image"
+          ]
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/node"
+          }
+        },
+        "text": {
+          "type": "string"
+        },
+        "marks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/mark"
+          }
+        },
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "language": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "header": {
+          "type": "boolean"
+        },
+        "asset": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "alt": {
+          "type": "string"
+        },
+        "caption": {
+          "type": "string"
+        },
+        "authoredSize": {
+          "type": "number",
+          "minimum": 0.05,
+          "maximum": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "text"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "text"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "enum": [
+                  "inline-image",
+                  "block-image"
+                ]
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "asset": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "asset"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "enum": [
+                  "inline-math",
+                  "display-math"
+                ]
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "source": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "source"
+            ]
+          }
+        }
+      ]
+    },
+    "mediaAsset": {
+      "type": "object",
+      "required": [
+        "id",
+        "mimeType",
+        "width",
+        "height",
+        "bytes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "mimeType": {
+          "enum": [
+            "image/png",
+            "image/jpeg",
+            "image/webp"
+          ]
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "bytes": {
+          "type": "string"
+        }
+      }
+    },
+    "choice": {
+      "type": "object",
+      "required": [
+        "id",
+        "content",
+        "correct"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^q[1-9][0-9]*-c[1-9][0-9]*$"
+        },
+        "content": {
+          "$ref": "#/$defs/document"
+        },
+        "correct": {
+          "type": "boolean"
+        }
+      }
+    },
+    "question": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "stem"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^q[1-9][0-9]*$"
+        },
+        "type": {
+          "enum": [
+            "multiple-choice",
+            "true-false",
+            "short-answer"
+          ]
+        },
+        "stem": {
+          "$ref": "#/$defs/document"
+        },
+        "difficulty": {
+          "enum": [
+            "easy",
+            "medium",
+            "hard"
+          ]
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "choices": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/choice"
+          }
+        },
+        "suggestedAnswer": {
+          "$ref": "#/$defs/document"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "multiple-choice"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "choices": {
+                "$ref": "#/$defs/question/properties/choices"
+              }
+            },
+            "required": [
+              "choices"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "true-false"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "choices": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "$ref": "#/$defs/choice"
+                }
+              }
+            },
+            "required": [
+              "choices"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

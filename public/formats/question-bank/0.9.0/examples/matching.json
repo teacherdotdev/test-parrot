@@ -1,0 +1,289 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.9.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "Matching",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "matching",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Match each event to the correct time period."
+                }
+              ]
+            }
+          ]
+        },
+        "topics": [
+          "Early history"
+        ],
+        "prompts": [
+          {
+            "id": "q1-p1",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Iron tools replaced bronze ones across much of the world."
+                    }
+                  ]
+                }
+              ]
+            },
+            "answer": "q1-a3"
+          },
+          {
+            "id": "q1-p2",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "People made their first tools from stone."
+                    }
+                  ]
+                }
+              ]
+            },
+            "answer": "q1-a1"
+          },
+          {
+            "id": "q1-p3",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "People learned to make tools from bronze."
+                    }
+                  ]
+                }
+              ]
+            },
+            "answer": "q1-a2"
+          },
+          {
+            "id": "q1-p4",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Castles were built across Europe."
+                    }
+                  ]
+                }
+              ]
+            },
+            "answer": "q1-a4"
+          }
+        ],
+        "wordBank": [
+          {
+            "id": "q1-a1",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Stone Age"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "q1-a2",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Bronze Age"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "q1-a3",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Iron Age"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "q1-a4",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Middle Ages"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "q2",
+        "type": "matching",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Match each term with its definition. One definition is not used."
+                }
+              ]
+            }
+          ]
+        },
+        "difficulty": "easy",
+        "prompts": [
+          {
+            "id": "q2-p1",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Osmosis"
+                    }
+                  ]
+                }
+              ]
+            },
+            "answer": "q2-a2"
+          },
+          {
+            "id": "q2-p2",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Diffusion"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "wordBank": [
+          {
+            "id": "q2-a1",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Movement of particles from high to low concentration."
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "q2-a2",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Movement of water across a membrane."
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "q2-a3",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Movement of particles against a gradient using energy."
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "media": []
+}

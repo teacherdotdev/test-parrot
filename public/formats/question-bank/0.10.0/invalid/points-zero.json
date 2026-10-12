@@ -1,0 +1,439 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.10.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "Zero Points",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Which gas do plants take in to make food?"
+                }
+              ]
+            }
+          ]
+        },
+        "points": 0,
+        "choices": [
+          {
+            "id": "q1-c1",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Oxygen"
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": false
+          },
+          {
+            "id": "q1-c2",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Carbon dioxide"
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": true
+          }
+        ]
+      },
+      {
+        "id": "q2",
+        "type": "true-false",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A seed needs light to germinate."
+                }
+              ]
+            }
+          ]
+        },
+        "points": 1,
+        "choices": [
+          {
+            "id": "q2-c1",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "True"
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": false
+          },
+          {
+            "id": "q2-c2",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "False"
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": true
+          }
+        ]
+      },
+      {
+        "id": "q3",
+        "type": "matching",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Match each part of a flower to its job."
+                }
+              ]
+            }
+          ]
+        },
+        "points": 2,
+        "prompts": [
+          {
+            "id": "q3-p1",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Petal"
+                    }
+                  ]
+                }
+              ]
+            },
+            "answer": "q3-a1"
+          },
+          {
+            "id": "q3-p2",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Root"
+                    }
+                  ]
+                }
+              ]
+            },
+            "answer": "q3-a2"
+          }
+        ],
+        "wordBank": [
+          {
+            "id": "q3-a1",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Attracts insects"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "q3-a2",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Takes in water"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "q4",
+        "type": "short-answer",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Explain why leaves are green."
+                }
+              ]
+            }
+          ]
+        },
+        "points": 3,
+        "suggestedAnswer": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "They contain chlorophyll, which reflects green light."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "q5",
+        "type": "short-answer",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Name a plant that grows in a desert."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "q6",
+        "type": "multipart",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A class grew bean plants in light and in shade."
+                }
+              ]
+            }
+          ]
+        },
+        "parts": [
+          {
+            "id": "q6-s1",
+            "type": "short-answer",
+            "stem": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Name the variable the class changed."
+                    }
+                  ]
+                }
+              ]
+            },
+            "points": 1,
+            "suggestedAnswer": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "The amount of light."
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "q6-s2",
+            "stem": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "The plants in shade grew taller but paler."
+                    }
+                  ]
+                }
+              ]
+            },
+            "subparts": [
+              {
+                "id": "q6-s2-s1",
+                "type": "multiple-choice",
+                "stem": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Which plants made more food?"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "points": 1,
+                "choices": [
+                  {
+                    "id": "q6-s2-s1-c1",
+                    "content": {
+                      "type": "document",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Those in light"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "correct": true
+                  },
+                  {
+                    "id": "q6-s2-s1-c2",
+                    "content": {
+                      "type": "document",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Those in shade"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "correct": false
+                  }
+                ]
+              },
+              {
+                "id": "q6-s2-s2",
+                "type": "short-answer",
+                "stem": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Suggest why the plants in shade grew taller."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "points": 2
+              },
+              {
+                "id": "q6-s2-s3",
+                "type": "short-answer",
+                "stem": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Describe one way to make the test fairer."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "media": []
+}

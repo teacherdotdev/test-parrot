@@ -1,0 +1,7 @@
+#separator:tab
+#html:true
+#deck:Biology::Cells
+#tags column:3
+Mitochondria	The <b>powerhouse</b> of the cell	cells energy
+The {{c1::nucleus}} holds the cell's DNA.		cells
+Ribosomes	Make proteins	cells

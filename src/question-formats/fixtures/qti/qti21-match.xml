@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1" identifier="match-authors" title="Authors" adaptive="false" timeDependent="false">
+  <responseDeclaration identifier="RESPONSE" cardinality="multiple" baseType="directedPair">
+    <correctResponse>
+      <value>A1 B2</value>
+      <value>A2 B1</value>
+    </correctResponse>
+    <mapping defaultValue="0">
+      <mapEntry mapKey="A1 B2" mappedValue="1"/>
+      <mapEntry mapKey="A2 B1" mappedValue="1"/>
+    </mapping>
+  </responseDeclaration>
+  <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
+  <itemBody>
+    <matchInteraction responseIdentifier="RESPONSE" shuffle="true" maxAssociations="2">
+      <prompt>Match each book to its author.</prompt>
+      <simpleMatchSet>
+        <simpleAssociableChoice identifier="A1" matchMax="1"><em>Hamlet</em></simpleAssociableChoice>
+        <simpleAssociableChoice identifier="A2" matchMax="1"><em>Emma</em></simpleAssociableChoice>
+      </simpleMatchSet>
+      <simpleMatchSet>
+        <simpleAssociableChoice identifier="B1" matchMax="2">Jane Austen</simpleAssociableChoice>
+        <simpleAssociableChoice identifier="B2" matchMax="2">William Shakespeare</simpleAssociableChoice>
+        <simpleAssociableChoice identifier="B3" matchMax="2">Charles Dickens</simpleAssociableChoice>
+      </simpleMatchSet>
+    </matchInteraction>
+  </itemBody>
+  <responseProcessing template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/map_response"/>
+</assessmentItem>

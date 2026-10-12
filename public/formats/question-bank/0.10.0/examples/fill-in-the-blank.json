@@ -1,0 +1,147 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.10.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "Fill in the Blank",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "fill-in-the-blank",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Bees carry (p)"
+                },
+                {
+                  "type": "blank",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "pollen"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " from flower to flower."
+                }
+              ]
+            }
+          ]
+        },
+        "topics": [
+          "Plants"
+        ],
+        "points": 1
+      },
+      {
+        "id": "q2",
+        "type": "fill-in-the-blank",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A square with sides of 3 cm has an "
+                },
+                {
+                  "type": "blank",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "area",
+                      "marks": [
+                        {
+                          "type": "emphasis"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " of "
+                },
+                {
+                  "type": "blank",
+                  "content": [
+                    {
+                      "type": "inline-math",
+                      "source": "9"
+                    },
+                    {
+                      "type": "text",
+                      "text": " cm²"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        "difficulty": "medium"
+      },
+      {
+        "id": "q3",
+        "type": "fill-in-the-blank",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The longest river in the world is the "
+                },
+                {
+                  "type": "blank"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "q4",
+        "type": "fill-in-the-blank",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A sentence still waiting for its blank."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "media": []
+}

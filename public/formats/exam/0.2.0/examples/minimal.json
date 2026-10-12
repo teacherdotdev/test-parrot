@@ -1,0 +1,13 @@
+{
+  "format": "test-parrot/exam",
+  "formatVersion": "0.2.0",
+  "name": "Pop Quiz",
+  "positions": [
+    {
+      "question": {
+        "bank": "bank",
+        "question": "q1"
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1" identifier="text-entry-capital" title="Capital" adaptive="false" timeDependent="false">
+  <responseDeclaration identifier="RESPONSE" cardinality="single" baseType="string">
+    <correctResponse>
+      <value>Ottawa</value>
+    </correctResponse>
+    <mapping defaultValue="0">
+      <mapEntry mapKey="Ottawa" mappedValue="1"/>
+      <mapEntry mapKey="ottawa" mappedValue="1"/>
+      <mapEntry mapKey="Toronto" mappedValue="0"/>
+    </mapping>
+  </responseDeclaration>
+  <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
+  <itemBody>
+    <p>The capital of Canada is <textEntryInteraction responseIdentifier="RESPONSE" expectedLength="15"/>.</p>
+  </itemBody>
+  <responseProcessing template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/map_response"/>
+</assessmentItem>

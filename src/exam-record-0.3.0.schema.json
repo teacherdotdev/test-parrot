@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://testparrot.com/formats/exam/0.3.0/schema.json",
+  "title": "Test Parrot Exam Record 0.3.0",
+  "description": "The composition of one Exam: its name, its test-page header lines, its Question Sections in print order and how each reads, how large its headings and text print, and its ordered positions, each placed in one of its Sections and referencing a Question in a Question Bank Record travelling in the same Test Parrot Package.",
+  "type": "object",
+  "required": [
+    "format",
+    "formatVersion",
+    "name",
+    "sections",
+    "positions"
+  ],
+  "properties": {
+    "format": {
+      "const": "test-parrot/exam"
+    },
+    "formatVersion": {
+      "const": "0.3.0"
+    },
+    "name": {
+      "type": "string"
+    },
+    "sections": {
+      "description": "The Exam's Question Sections, in the order they print. A Section holds Questions of any type. A Section no position belongs to is kept, and prints its heading and directions with nothing under them.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/section"
+      }
+    },
+    "headingSize": {
+      "description": "How large every heading on the Exam prints: its title, and each section heading and its directions. Absent means normal.",
+      "enum": [
+        "small",
+        "normal",
+        "large"
+      ]
+    },
+    "textSize": {
+      "description": "How large the Exam's questions, answers and answer-key lines print. Absent means normal.",
+      "enum": [
+        "small",
+        "normal",
+        "large"
+      ]
+    },
+    "header": {
+      "description": "The Exam's own wording for its test-page header lines, where it departs from Test Parrot's default blanks. `first` prints on the first test page and `later` on every other; underscores are the blanks. An empty string prints nothing but the paper's ID, which is never part of the line. Absent means the default.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "first": {
+          "type": "string"
+        },
+        "later": {
+          "type": "string"
+        }
+      }
+    },
+    "positions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/position"
+      }
+    }
+  },
+  "$defs": {
+    "section": {
+      "type": "object",
+      "required": [
+        "title",
+        "instructions"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "description": "The Section's heading, as the teacher wrote it. An empty string is a heading the teacher cleared, which prints nothing.",
+          "type": "string",
+          "maxLength": 500
+        },
+        "instructions": {
+          "description": "The Section's directions, as the teacher wrote them. An empty string is directions the teacher cleared, which print nothing.",
+          "type": "string",
+          "maxLength": 2000
+        }
+      }
+    },
+    "position": {
+      "type": "object",
+      "required": [
+        "question",
+        "section"
+      ],
+      "properties": {
+        "question": {
+          "type": "object",
+          "required": [
+            "bank",
+            "question"
+          ],
+          "properties": {
+            "bank": {
+              "type": "string",
+              "minLength": 1
+            },
+            "question": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "section": {
+          "description": "The index, from 0, into `sections` of the Section this position belongs to.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "columns": {
+          "enum": [
+            1,
+            2,
+            4
+          ]
+        },
+        "answerOrder": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "workSpace": {
+          "$ref": "#/$defs/workSpace"
+        }
+      }
+    },
+    "workSpace": {
+      "type": "object",
+      "required": [
+        "height",
+        "style",
+        "fill"
+      ],
+      "properties": {
+        "height": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100000
+        },
+        "style": {
+          "enum": [
+            "blank",
+            "lines"
+          ]
+        },
+        "fill": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "unknown-bank.json": "dangling-reference",
+  "unknown-question.json": "dangling-reference",
+  "question-used-twice.json": "duplicate-reference",
+  "columns-on-short-answer.json": "invalid-position",
+  "answer-order-not-a-permutation.json": "invalid-answer-order",
+  "duplicate-bank-id.json": "duplicate-id",
+  "no-banks.json": "invalid-structure",
+  "unsupported-package-version.json": "unsupported-version",
+  "unsupported-exam-version.json": "unsupported-version",
+  "exam-record-alone.json": "unsupported-format",
+  "section-out-of-range.json": "dangling-reference"
+}

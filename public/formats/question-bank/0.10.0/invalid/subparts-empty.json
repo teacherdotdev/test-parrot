@@ -1,0 +1,89 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.10.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "Subparts",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multipart",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A class counted the frogs at a pond each month for a year."
+                }
+              ]
+            }
+          ]
+        },
+        "difficulty": "medium",
+        "topics": [
+          "Ecology"
+        ],
+        "parts": [
+          {
+            "id": "q1-s1",
+            "type": "short-answer",
+            "stem": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Name one thing a frog eats."
+                    }
+                  ]
+                }
+              ]
+            },
+            "suggestedAnswer": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Insects."
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "q1-s2",
+            "stem": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "The count was highest in April."
+                    }
+                  ]
+                }
+              ]
+            },
+            "subparts": []
+          }
+        ]
+      }
+    ]
+  },
+  "media": []
+}

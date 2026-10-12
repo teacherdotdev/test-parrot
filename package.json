@@ -1,0 +1,49 @@
+{
+  "name": "test-parrot",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 8000",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "test": "bun test",
+    "test:e2e": "playwright test",
+    "format": "prettier --write .",
+    "test:exports": "bun run scripts/test-exports.ts"
+  },
+  "dependencies": {
+    "@floating-ui/dom": "^1.8.0",
+    "@milkdown/crepe": "^7.21.1",
+    "@milkdown/kit": "^7.21.1",
+    "@milkdown/react": "^7.21.1",
+    "@pdf-lib/fontkit": "^1.1.1",
+    "ajv": "^8.17.1",
+    "docx": "^9.7.1",
+    "jszip": "^3.10.1",
+    "katex": "^0.18.0",
+    "lucide-react": "^1.34.0",
+    "mathjax-full": "3.2.2",
+    "pdf-lib": "^1.17.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@playwright/test": "^1.62.1",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "fake-indexeddb": "^6.2.5",
+    "globals": "^16.3.0",
+    "marked": "^18.0.12",
+    "pdfjs-dist": "^6.3.289",
+    "prettier": "^3.6.2",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.39.1",
+    "vite": "^7.1.2"
+  }
+}

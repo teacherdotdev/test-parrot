@@ -1,0 +1,53 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.9.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "Cropped Picture",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "short-answer",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "What shape does the picture show?"
+                }
+              ]
+            },
+            {
+              "type": "block-image",
+              "asset": "sha256:3eb6d464a6c5947d4bd697a140ce49868dab5c038eb708985432c2fa4c108672",
+              "alt": "A blue rectangle",
+              "authoredSize": 0.4,
+              "crop": {
+                "left": 0.25,
+                "top": 0.25,
+                "right": 0.75,
+                "bottom": 0.75
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "media": [
+    {
+      "id": "sha256:3eb6d464a6c5947d4bd697a140ce49868dab5c038eb708985432c2fa4c108672",
+      "mimeType": "image/png",
+      "width": 40,
+      "height": 20,
+      "file": "media/sha256-3eb6d464a6c5947d4bd697a140ce49868dab5c038eb708985432c2fa4c108672.png"
+    }
+  ]
+}

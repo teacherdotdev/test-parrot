@@ -1,0 +1,20 @@
+{
+  "format": "test-parrot/exam",
+  "formatVersion": "0.3.0",
+  "name": "Pop Quiz",
+  "sections": [
+    {
+      "title": "Multiple Choice",
+      "instructions": "Identify the choice that best completes the statement or answers the question."
+    }
+  ],
+  "positions": [
+    {
+      "question": {
+        "bank": "bank",
+        "question": "q1"
+      },
+      "section": 0
+    }
+  ]
+}

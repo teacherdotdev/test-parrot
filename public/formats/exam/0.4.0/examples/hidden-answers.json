@@ -1,0 +1,30 @@
+{
+  "format": "test-parrot/exam",
+  "formatVersion": "0.4.0",
+  "name": "Cell Quiz",
+  "sections": [
+    {
+      "title": "Multiple Choice",
+      "instructions": "Identify the choice that best completes the statement or answers the question."
+    }
+  ],
+  "positions": [
+    {
+      "question": {
+        "bank": "bank",
+        "question": "q1"
+      },
+      "section": 0,
+      "columns": 1,
+      "answerOrder": [
+        "q1-c3",
+        "q1-c1",
+        "q1-c4",
+        "q1-c2"
+      ],
+      "hiddenAnswers": [
+        "q1-c3"
+      ]
+    }
+  ]
+}

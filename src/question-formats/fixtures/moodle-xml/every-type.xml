@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Default for Biology 101/Chapter 1</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text>The default category for questions shared in context 'Biology 101'.</text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 101  -->
+  <question type="multichoice">
+    <name>
+      <text>Cell organelle</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Which organelle makes <strong>ATP</strong>?</p><p><img src="@@PLUGINFILE@@/cell%20diagram.png" alt="A cell" width="1" height="1"></p>]]></text>
+      <file name="cell diagram.png" path="/" encoding="base64">iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==</file>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>0</showstandardinstruction>
+    <correctfeedback format="html">
+      <text>Your answer is correct.</text>
+    </correctfeedback>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Nucleus</p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Mitochondrion</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Yes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ribosome</p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag><text>energy</text>
+      </tag>
+    </tags>
+  </question>
+
+<!-- question: 102  -->
+  <question type="multichoice">
+    <name>
+      <text>Primes</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which numbers are prime?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0000000</defaultgrade>
+    <single>false</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="50" format="html">
+      <text>2</text>
+      <feedback format="html"><text></text></feedback>
+    </answer>
+    <answer fraction="50" format="html">
+      <text>3</text>
+      <feedback format="html"><text></text></feedback>
+    </answer>
+    <answer fraction="-100" format="html">
+      <text>4</text>
+      <feedback format="html"><text></text></feedback>
+    </answer>
+  </question>
+
+<!-- question: 103  -->
+  <question type="truefalse">
+    <name>
+      <text>Sun</text>
+    </name>
+    <questiontext format="moodle_auto_format">
+      <text>The sun rises in the west.</text>
+    </questiontext>
+    <defaultgrade>1.0000000</defaultgrade>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html"><text></text></feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html"><text></text></feedback>
+    </answer>
+  </question>
+
+<!-- question: 104  -->
+  <question type="shortanswer">
+    <name>
+      <text>Capital</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the capital of France?</p>]]></text>
+    </questiontext>
+    <usecase>0</usecase>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>Paris</text>
+      <feedback format="html"><text></text></feedback>
+    </answer>
+    <answer fraction="50" format="moodle_auto_format">
+      <text>paris, France</text>
+      <feedback format="html"><text></text></feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>*</text>
+      <feedback format="html"><text></text></feedback>
+    </answer>
+  </question>
+
+<!-- question: 105  -->
+  <question type="matching">
+    <name>
+      <text>Capitals</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Match each country with its capital.</p>]]></text>
+    </questiontext>
+    <shuffleanswers>true</shuffleanswers>
+    <subquestion format="html">
+      <text><![CDATA[<p>Canada</p>]]></text>
+      <answer>
+        <text>Ottawa</text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text><![CDATA[<p>Italy</p>]]></text>
+      <answer>
+        <text>Rome</text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text></text>
+      <answer>
+        <text>Sydney</text>
+      </answer>
+    </subquestion>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Default for Biology 101/Chapter 2</text>
+    </category>
+  </question>
+
+<!-- question: 106  -->
+  <question type="essay">
+    <name>
+      <text>Photosynthesis</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Explain photosynthesis.</p>]]></text>
+    </questiontext>
+    <responseformat>editor</responseformat>
+    <responserequired>1</responserequired>
+    <responsefieldlines>15</responsefieldlines>
+    <graderinfo format="html">
+      <text><![CDATA[<p>Light energy becomes chemical energy.</p>]]></text>
+    </graderinfo>
+    <responsetemplate format="html">
+      <text><![CDATA[<p>Start here…</p>]]></text>
+    </responsetemplate>
+  </question>
+
+<!-- question: 107  -->
+  <question type="numerical">
+    <name>
+      <text>Pi</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is pi to two decimal places?</p>]]></text>
+    </questiontext>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>3.14</text>
+      <feedback format="html"><text></text></feedback>
+      <tolerance>0.01</tolerance>
+    </answer>
+    <units>
+    </units>
+  </question>
+
+<!-- question: 108  -->
+  <question type="cloze">
+    <name>
+      <text>Geography cloze</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>The capital of France is {1:MULTICHOICE:=Paris#Right~London#No~Berlin}, of Italy {1:SHORTANSWER:=Rome~%50%Roma}, and pi is {2:NUMERICAL:=3.14:0.01}.</p>]]></text>
+    </questiontext>
+  </question>
+
+<!-- question: 109  -->
+  <question type="description">
+    <name>
+      <text>Section intro</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>The next questions are about plants.</p>]]></text>
+    </questiontext>
+  </question>
+
+<!-- question: 110  -->
+  <question type="ddwtos">
+    <name>
+      <text>Drag words</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>The [[1]] sat on the [[2]].</p>]]></text>
+    </questiontext>
+  </question>
+
+<!-- question: 111  -->
+  <question type="ordering">
+    <name>
+      <text>Order planets</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Put the planets in order from the sun.</p>]]></text>
+    </questiontext>
+    <answer fraction="1.0000000" format="moodle_auto_format">
+      <text>Mercury</text>
+    </answer>
+    <answer fraction="2.0000000" format="moodle_auto_format">
+      <text>Venus</text>
+    </answer>
+    <answer fraction="3.0000000" format="moodle_auto_format">
+      <text>Earth</text>
+    </answer>
+  </question>
+
+</quiz>

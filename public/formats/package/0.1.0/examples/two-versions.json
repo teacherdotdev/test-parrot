@@ -1,0 +1,467 @@
+{
+  "format": "test-parrot/package",
+  "formatVersion": "0.1.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "questionBanks": [
+    {
+      "id": "cells",
+      "record": {
+        "format": "test-parrot/question-bank",
+        "formatVersion": "0.3.0",
+        "generator": {
+          "name": "Contract Fixture Publisher",
+          "version": "1.0.0"
+        },
+        "requiredFeatures": [],
+        "bank": {
+          "name": "Cells",
+          "questions": [
+            {
+              "id": "q1",
+              "type": "multiple-choice",
+              "stem": {
+                "type": "document",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Which organelle releases energy from food?"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "choices": [
+                {
+                  "id": "q1-c1",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Nucleus"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "correct": false
+                },
+                {
+                  "id": "q1-c2",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Mitochondrion"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "correct": true
+                },
+                {
+                  "id": "q1-c3",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Ribosome"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "correct": false
+                },
+                {
+                  "id": "q1-c4",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Vacuole"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "multiple-choice",
+              "stem": {
+                "type": "document",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "What surrounds every cell?"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "choices": [
+                {
+                  "id": "q2-c1",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Cell wall"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "correct": false
+                },
+                {
+                  "id": "q2-c2",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Chloroplast"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "correct": false
+                },
+                {
+                  "id": "q2-c3",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Cell membrane"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "correct": true
+                },
+                {
+                  "id": "q2-c4",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Cytoplasm"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "q3",
+              "type": "true-false",
+              "stem": {
+                "type": "document",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Plant cells have chloroplasts."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "choices": [
+                {
+                  "id": "q3-c1",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "True"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "correct": true
+                },
+                {
+                  "id": "q3-c2",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "False"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "q4",
+              "type": "matching",
+              "stem": {
+                "type": "document",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Match each part to its job."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "prompts": [
+                {
+                  "id": "q4-p1",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Nucleus"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "answer": "q4-a1"
+                },
+                {
+                  "id": "q4-p2",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Ribosome"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "answer": "q4-a2"
+                }
+              ],
+              "wordBank": [
+                {
+                  "id": "q4-a1",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Holds DNA"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "id": "q4-a2",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Builds proteins"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "id": "q4-a3",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Stores water"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "id": "q5",
+              "type": "short-answer",
+              "stem": {
+                "type": "document",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Explain why cells divide."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "suggestedAnswer": {
+                "type": "document",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "To grow and to repair damaged tissue."
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "media": []
+      }
+    }
+  ],
+  "exams": [
+    {
+      "format": "test-parrot/exam",
+      "formatVersion": "0.1.0",
+      "name": "Cells Quiz — Version A",
+      "positions": [
+        {
+          "question": {
+            "bank": "cells",
+            "question": "q1"
+          },
+          "answerOrder": [
+            "q1-c1",
+            "q1-c2",
+            "q1-c3",
+            "q1-c4"
+          ]
+        },
+        {
+          "question": {
+            "bank": "cells",
+            "question": "q5"
+          }
+        }
+      ]
+    },
+    {
+      "format": "test-parrot/exam",
+      "formatVersion": "0.1.0",
+      "name": "Cells Quiz — Version B",
+      "positions": [
+        {
+          "question": {
+            "bank": "cells",
+            "question": "q1"
+          },
+          "answerOrder": [
+            "q1-c4",
+            "q1-c3",
+            "q1-c2",
+            "q1-c1"
+          ]
+        },
+        {
+          "question": {
+            "bank": "cells",
+            "question": "q5"
+          },
+          "workSpace": {
+            "height": 0,
+            "style": "blank",
+            "fill": true
+          }
+        }
+      ]
+    }
+  ]
+}

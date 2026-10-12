@@ -1,0 +1,412 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.8.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "Multipart",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multipart",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "blockquote",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "The power of the Kingdom of Aldmere was fading by 1450 …"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Source: “A Short History of Aldmere,” 1998 (adapted)"
+                }
+              ]
+            }
+          ]
+        },
+        "difficulty": "medium",
+        "topics": [
+          "Kingdom of Aldmere"
+        ],
+        "parts": [
+          {
+            "id": "q1-s1",
+            "type": "multiple-choice",
+            "stem": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Which region was controlled by the Kingdom of Aldmere in 1450?"
+                    }
+                  ]
+                }
+              ]
+            },
+            "choices": [
+              {
+                "id": "q1-s1-c1",
+                "content": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Western Hills"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "correct": false
+              },
+              {
+                "id": "q1-s1-c2",
+                "content": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Southern Plains"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "correct": false
+              },
+              {
+                "id": "q1-s1-c3",
+                "content": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Eastern Forests"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "correct": false
+              },
+              {
+                "id": "q1-s1-c4",
+                "content": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Northern Coast"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "correct": true
+              }
+            ]
+          },
+          {
+            "id": "q1-s2",
+            "type": "multiple-choice",
+            "stem": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Based on the passage, identify an issue faced by the Kingdom of Aldmere in the 1400s."
+                    }
+                  ]
+                }
+              ]
+            },
+            "choices": [
+              {
+                "id": "q1-s2-c1",
+                "content": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "The kingdom became too large to govern."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "correct": false
+              },
+              {
+                "id": "q1-s2-c2",
+                "content": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Its harbors silted up."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "correct": true
+              },
+              {
+                "id": "q1-s2-c3",
+                "content": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Rulers were responsive to the needs of the people."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "correct": false
+              },
+              {
+                "id": "q1-s2-c4",
+                "content": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Trade increased in the kingdom."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "correct": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q2",
+        "type": "multipart",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "“Give me liberty, or give me death!”"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Patrick Henry, speech to the Second Virginia Convention, 1775"
+                }
+              ]
+            }
+          ]
+        },
+        "topics": [
+          "American Revolution"
+        ],
+        "parts": [
+          {
+            "id": "q2-s1",
+            "type": "multiple-choice",
+            "stem": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Which action was Patrick Henry urging?"
+                    }
+                  ]
+                }
+              ]
+            },
+            "choices": [
+              {
+                "id": "q2-s1-c1",
+                "content": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Armed resistance to Britain"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "correct": true
+              },
+              {
+                "id": "q2-s1-c2",
+                "content": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Loyalty to the Crown"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "correct": false
+              },
+              {
+                "id": "q2-s1-c3",
+                "content": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "A new tax on tea"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "correct": false
+              }
+            ]
+          },
+          {
+            "id": "q2-s2",
+            "type": "short-answer",
+            "stem": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Explain why a colonist might have agreed with Patrick Henry."
+                    }
+                  ]
+                }
+              ]
+            },
+            "suggestedAnswer": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Colonists objected to taxation without representation and saw British rule as a threat to their liberty."
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "q2-s3",
+            "type": "short-answer",
+            "stem": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Identify one person who disagreed with Patrick Henry."
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "q3",
+        "type": "multipart",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Study the map of the Silk Road trade routes."
+                }
+              ]
+            }
+          ]
+        },
+        "parts": []
+      }
+    ]
+  },
+  "media": []
+}

@@ -1,0 +1,13 @@
+---
+status: accepted
+---
+
+# Carry pictures as files in a zip beside the package
+
+ADR-0018 put every Media Asset inside the Question Bank Record as base64, so a whole bank was one JSON document. That made a single phone photo a 6-million-character string, which is how a teacher's bank came to fail import with “Maximum call stack size exceeded”: a base64 check that is harmless on a small image overflows the stack on a large one. Base64 also inflates every picture by a third and makes the record unreadable in a text editor. This ADR supersedes ADR-0018's “original base64 bytes” rule, and ADR-0022's sentence that an Exam PDF's package carries each owning bank. Everything else in both stands: the PDF attachment identity, all-or-nothing validation, content-addressed Media Assets and fresh local identities.
+
+Test Parrot now writes every package as a zip: `parrot.json` at its root, an ordinary Test Parrot Package, and each picture it needs under `media/`, named by its hash (`media/sha256-<hex>.jpg`). Question Bank Record 0.8.0 is 0.7.0 with each Media Asset naming its `file` in the zip in place of `bytes`. The Package format is unchanged, since it already validates each record against that record's own version. The same zip is attached to every Question Bank File and to every Exam PDF that includes the answer key, under the existing `pdf-canonical-extraction` identity, and it can be downloaded alone as `.parrot.zip`. The importer takes the zip out of a PDF, or reads a zip file directly, then runs one reader over it. A Question Bank File's zip always holds a package, now of one bank and no Exams, rather than a bare Question Bank Record, so there is one thing inside every PDF.
+
+A bare JSON file stays importable, since an assistant cannot write a zip and never carries picture bytes: its pictures arrive as Pending Images. A 0.1.0–0.7.0 record or package keeps its base64 Media Assets and imports as before. A 0.8.0 record outside a zip may name no files. We rejected one PDF attachment per picture, because that layout would exist only inside PDFs and the importer would need a second way to find pictures. We rejected reusing the Account Backup's zip layout, because its manifest wraps records in its own markers: a package's zip should be the published package format and nothing more.
+
+An Exam PDF's package now holds one bank, named “‹Exam name› Question Bank”, containing exactly that Exam's Questions in Exam order, whichever banks they came from. What travels with an Exam is the Exam's material, not the teacher's banks, so the owning banks' names and descriptions stay home. An author or license travels only when every contributing bank has the same one, so a shared Exam never credits the wrong person.

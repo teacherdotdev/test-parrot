@@ -1,0 +1,76 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.10.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "Invalid Fill in the Blank",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Which word fits?"
+                }
+              ]
+            }
+          ]
+        },
+        "choices": [
+          {
+            "id": "q1-c1",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "blank",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "pollen"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": true
+          },
+          {
+            "id": "q1-c2",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "nectar"
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": false
+          }
+        ]
+      }
+    ]
+  },
+  "media": []
+}

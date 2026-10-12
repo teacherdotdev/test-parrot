@@ -1,0 +1,634 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.6.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "Side by Side",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "short-answer",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Compare the two graphs of supply and demand below."
+                }
+              ]
+            },
+            {
+              "type": "side-by-side",
+              "content": [
+                {
+                  "type": "panel",
+                  "content": [
+                    {
+                      "type": "block-image",
+                      "asset": "sha256:c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77",
+                      "alt": "Graph of supply and demand before the tax",
+                      "caption": "Graph A"
+                    }
+                  ]
+                },
+                {
+                  "type": "panel",
+                  "content": [
+                    {
+                      "type": "block-image",
+                      "asset": "sha256:c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77",
+                      "alt": "Graph of supply and demand after the tax",
+                      "caption": "Graph B"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Explain what changed between Graph A and Graph B."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "q2",
+        "type": "multiple-choice",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Use the tables below to answer the question."
+                }
+              ]
+            },
+            {
+              "type": "side-by-side",
+              "content": [
+                {
+                  "type": "panel",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Country A"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "table",
+                      "content": [
+                        {
+                          "type": "table-row",
+                          "header": true,
+                          "content": [
+                            {
+                              "type": "table-cell",
+                              "header": true,
+                              "content": [
+                                {
+                                  "type": "paragraph",
+                                  "content": [
+                                    {
+                                      "type": "text",
+                                      "text": "Good"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "table-cell",
+                              "header": true,
+                              "content": [
+                                {
+                                  "type": "paragraph",
+                                  "content": [
+                                    {
+                                      "type": "text",
+                                      "text": "Hours"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "table-row",
+                          "content": [
+                            {
+                              "type": "table-cell",
+                              "content": [
+                                {
+                                  "type": "paragraph",
+                                  "content": [
+                                    {
+                                      "type": "text",
+                                      "text": "Wheat"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "table-cell",
+                              "content": [
+                                {
+                                  "type": "paragraph",
+                                  "content": [
+                                    {
+                                      "type": "text",
+                                      "text": "2"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "table-row",
+                          "content": [
+                            {
+                              "type": "table-cell",
+                              "content": [
+                                {
+                                  "type": "paragraph",
+                                  "content": [
+                                    {
+                                      "type": "text",
+                                      "text": "Cloth"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "table-cell",
+                              "content": [
+                                {
+                                  "type": "paragraph",
+                                  "content": [
+                                    {
+                                      "type": "text",
+                                      "text": "4"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "panel",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Country B"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "table",
+                      "content": [
+                        {
+                          "type": "table-row",
+                          "header": true,
+                          "content": [
+                            {
+                              "type": "table-cell",
+                              "header": true,
+                              "content": [
+                                {
+                                  "type": "paragraph",
+                                  "content": [
+                                    {
+                                      "type": "text",
+                                      "text": "Good"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "table-cell",
+                              "header": true,
+                              "content": [
+                                {
+                                  "type": "paragraph",
+                                  "content": [
+                                    {
+                                      "type": "text",
+                                      "text": "Hours"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "table-row",
+                          "content": [
+                            {
+                              "type": "table-cell",
+                              "content": [
+                                {
+                                  "type": "paragraph",
+                                  "content": [
+                                    {
+                                      "type": "text",
+                                      "text": "Wheat"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "table-cell",
+                              "content": [
+                                {
+                                  "type": "paragraph",
+                                  "content": [
+                                    {
+                                      "type": "text",
+                                      "text": "3"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "table-row",
+                          "content": [
+                            {
+                              "type": "table-cell",
+                              "content": [
+                                {
+                                  "type": "paragraph",
+                                  "content": [
+                                    {
+                                      "type": "text",
+                                      "text": "Cloth"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "table-cell",
+                              "content": [
+                                {
+                                  "type": "paragraph",
+                                  "content": [
+                                    {
+                                      "type": "text",
+                                      "text": "3"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Which country has the comparative advantage in wheat?"
+                }
+              ]
+            }
+          ]
+        },
+        "choices": [
+          {
+            "id": "q2-c1",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Country A"
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": true
+          },
+          {
+            "id": "q2-c2",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Country B"
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "q3",
+        "type": "multipart",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "blockquote",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Source: Abraham Lincoln, Gettysburg Address, 1863"
+                }
+              ]
+            },
+            {
+              "type": "side-by-side",
+              "content": [
+                {
+                  "type": "panel",
+                  "content": [
+                    {
+                      "type": "block-image",
+                      "asset": "sha256:c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77",
+                      "alt": "Photograph of Lincoln at Gettysburg",
+                      "authoredSize": 0.8
+                    }
+                  ]
+                },
+                {
+                  "type": "panel",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Lincoln spoke for about two minutes at the dedication of the Soldiers’ National Cemetery."
+                        }
+                      ]
+                    },
+                    {
+                      "type": "bullet-list",
+                      "content": [
+                        {
+                          "type": "list-item",
+                          "content": [
+                            {
+                              "type": "paragraph",
+                              "content": [
+                                {
+                                  "type": "text",
+                                  "text": "November 19, 1863"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "list-item",
+                          "content": [
+                            {
+                              "type": "paragraph",
+                              "content": [
+                                {
+                                  "type": "text",
+                                  "text": "Gettysburg, Pennsylvania"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "parts": [
+          {
+            "id": "q3-s1",
+            "type": "multiple-choice",
+            "stem": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Which document does the phrase “all men are created equal” echo?"
+                    }
+                  ]
+                }
+              ]
+            },
+            "choices": [
+              {
+                "id": "q3-s1-c1",
+                "content": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "The Declaration of Independence"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "correct": true
+              },
+              {
+                "id": "q3-s1-c2",
+                "content": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "The Articles of Confederation"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "correct": false
+              },
+              {
+                "id": "q3-s1-c3",
+                "content": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "The Emancipation Proclamation"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "correct": false
+              }
+            ]
+          },
+          {
+            "id": "q3-s2",
+            "type": "short-answer",
+            "stem": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Each column names one idea from the speech."
+                    }
+                  ]
+                },
+                {
+                  "type": "side-by-side",
+                  "content": [
+                    {
+                      "type": "panel",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Liberty"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "panel",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Equality"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "panel",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Union"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Explain how Lincoln connects two of them."
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "media": [
+    {
+      "id": "sha256:c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77",
+      "mimeType": "image/png",
+      "width": 1,
+      "height": 1,
+      "bytes": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+    }
+  ]
+}

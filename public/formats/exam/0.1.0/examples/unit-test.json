@@ -1,0 +1,55 @@
+{
+  "format": "test-parrot/exam",
+  "formatVersion": "0.1.0",
+  "name": "Cells Unit Test",
+  "positions": [
+    {
+      "question": {
+        "bank": "cells",
+        "question": "q2"
+      },
+      "columns": 4,
+      "answerOrder": [
+        "q2-c3",
+        "q2-c1",
+        "q2-c2",
+        "q2-c4"
+      ]
+    },
+    {
+      "question": {
+        "bank": "cells",
+        "question": "q1"
+      },
+      "columns": 2
+    },
+    {
+      "question": {
+        "bank": "cells",
+        "question": "q3"
+      }
+    },
+    {
+      "question": {
+        "bank": "cells",
+        "question": "q4"
+      },
+      "answerOrder": [
+        "q4-a3",
+        "q4-a1",
+        "q4-a2"
+      ]
+    },
+    {
+      "question": {
+        "bank": "cells",
+        "question": "q5"
+      },
+      "workSpace": {
+        "height": 128,
+        "style": "lines",
+        "fill": false
+      }
+    }
+  ]
+}

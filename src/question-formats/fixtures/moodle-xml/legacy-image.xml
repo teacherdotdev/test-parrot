@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="multichoice">
+    <name><text>Old picture</text></name>
+    <questiontext format="moodle_auto_format"><text>What colour is this square?</text></questiontext>
+    <image>squares/red.png</image>
+    <image_base64>iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==</image_base64>
+    <single>true</single>
+    <answer fraction="100"><text>Red</text></answer>
+    <answer fraction="0"><text>Blue</text></answer>
+  </question>
+  <question type="multichoice">
+    <name><text>URL-only picture</text></name>
+    <questiontext format="html"><text><![CDATA[<p>Which shape is shown? <img src="http://moodle.example.edu/file.php/2/shape.png"></p>]]></text></questiontext>
+    <single>true</single>
+    <answer fraction="100"><text>Circle</text></answer>
+    <answer fraction="0"><text>Square</text></answer>
+  </question>
+</quiz>

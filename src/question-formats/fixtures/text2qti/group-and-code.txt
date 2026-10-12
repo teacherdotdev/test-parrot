@@ -1,0 +1,36 @@
+Quiz title: Groups
+% A line comment, never shown.
+
+GROUP
+pick: 1
+points per question: 1
+
+1.  A question.
+*a) true
+b)  false
+
+2.  Another question.
+*a) true
+b)  false
+
+END_GROUP
+
+```{.python .run}
+import textwrap
+for x in [2, 3]:
+    print(textwrap.dedent(rf"""
+        1.  What is ${x}\times 5$?
+        *a) ${x*5}$
+        b)  ${x+1}$
+        """))
+```
+
+COMMENT
+1.  A question inside a comment.
+*a) never read
+b)  never read
+END_COMMENT
+
+3.  What does **Newton's second law** say, with $F$ in *newtons*?
+*a) $F = ma$
+b)  `F = m / a`

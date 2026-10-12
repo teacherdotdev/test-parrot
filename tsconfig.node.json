@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+    "outDir": "node_modules/.tmp/tsconfig.node"
+  },
+  "include": ["vite.config.ts", "extract-page.ts", "src/image-tag-list.ts"]
+}

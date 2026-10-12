@@ -1,0 +1,89 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.4.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "Malformed True/False",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "true-false",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Sound travels faster in water than in air."
+                }
+              ]
+            }
+          ]
+        },
+        "choices": [
+          {
+            "id": "q1-c1",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "True"
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": true
+          },
+          {
+            "id": "q1-c2",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "False"
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": false
+          },
+          {
+            "id": "q1-c3",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Sometimes"
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": false
+          }
+        ]
+      }
+    ]
+  },
+  "media": []
+}

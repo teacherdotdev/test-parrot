@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p2" identifier="order-steps" title="Steps" adaptive="false" timeDependent="false">
+  <responseDeclaration identifier="RESPONSE" cardinality="ordered" baseType="identifier">
+    <correctResponse>
+      <value>C</value>
+      <value>A</value>
+      <value>B</value>
+    </correctResponse>
+  </responseDeclaration>
+  <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
+  <itemBody>
+    <orderInteraction responseIdentifier="RESPONSE" shuffle="true">
+      <prompt>Put the steps of the scientific method in order.</prompt>
+      <simpleChoice identifier="A">Test the hypothesis</simpleChoice>
+      <simpleChoice identifier="B">Draw a conclusion</simpleChoice>
+      <simpleChoice identifier="C">Ask a question</simpleChoice>
+    </orderInteraction>
+  </itemBody>
+  <responseProcessing template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct"/>
+</assessmentItem>

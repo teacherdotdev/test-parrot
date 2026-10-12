@@ -1,0 +1,293 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.6.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "Complete Rich Text",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "short-answer",
+        "difficulty": "hard",
+        "topics": [
+          "Semantics",
+          "Formatting"
+        ],
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "heading",
+              "level": 2,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rich content"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "strong",
+                  "marks": [
+                    {
+                      "type": "strong"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " emphasis",
+                  "marks": [
+                    {
+                      "type": "emphasis"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " code",
+                  "marks": [
+                    {
+                      "type": "inline-code"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " strike",
+                  "marks": [
+                    {
+                      "type": "strike"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " sub",
+                  "marks": [
+                    {
+                      "type": "subscript"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " super",
+                  "marks": [
+                    {
+                      "type": "superscript"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " source",
+                  "marks": [
+                    {
+                      "type": "link",
+                      "href": "https://example.org/source",
+                      "title": "Source"
+                    }
+                  ]
+                },
+                {
+                  "type": "hard-break"
+                },
+                {
+                  "type": "inline-math",
+                  "source": "x^2"
+                },
+                {
+                  "type": "inline-image",
+                  "asset": "sha256:c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77",
+                  "alt": "One pixel"
+                }
+              ]
+            },
+            {
+              "type": "blockquote",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Quoted evidence"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "bullet-list",
+              "content": [
+                {
+                  "type": "list-item",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Bullet"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "ordered-list",
+              "start": 3,
+              "content": [
+                {
+                  "type": "list-item",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Third"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "language": "js",
+              "text": "const answer = 42"
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "table",
+              "content": [
+                {
+                  "type": "table-row",
+                  "header": true,
+                  "content": [
+                    {
+                      "type": "table-cell",
+                      "header": true,
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Heading"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "table-row",
+                  "content": [
+                    {
+                      "type": "table-cell",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Value"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "display-math",
+              "source": "x^2+y^2=z^2"
+            },
+            {
+              "type": "block-image",
+              "asset": "sha256:c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77",
+              "alt": "A pixel diagram",
+              "caption": "Canonical image",
+              "authoredSize": 0.75
+            },
+            {
+              "type": "side-by-side",
+              "content": [
+                {
+                  "type": "panel",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Left panel"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "panel",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Right panel"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "suggestedAnswer": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Every semantic node remains format-owned."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "media": [
+    {
+      "id": "sha256:c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77",
+      "mimeType": "image/png",
+      "width": 1,
+      "height": 1,
+      "bytes": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+    }
+  ]
+}

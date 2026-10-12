@@ -1,0 +1,378 @@
+{
+  "format": "test-parrot/package",
+  "formatVersion": "0.1.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "questionBanks": [
+    {
+      "id": "forces",
+      "record": {
+        "format": "test-parrot/question-bank",
+        "formatVersion": "0.9.0",
+        "generator": {
+          "name": "Contract Fixture Publisher",
+          "version": "1.0.0"
+        },
+        "requiredFeatures": [],
+        "bank": {
+          "name": "Forces and Motion",
+          "questions": [
+            {
+              "id": "q1",
+              "type": "multiple-choice",
+              "stem": {
+                "type": "document",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Which quantity is a vector?"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "choices": [
+                {
+                  "id": "q1-c1",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Mass"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "correct": false
+                },
+                {
+                  "id": "q1-c2",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Speed"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "correct": false
+                },
+                {
+                  "id": "q1-c3",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Velocity"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "correct": true
+                },
+                {
+                  "id": "q1-c4",
+                  "content": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Energy"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "correct": false
+                }
+              ],
+              "points": 1
+            },
+            {
+              "id": "q2",
+              "type": "multipart",
+              "stem": {
+                "type": "document",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "A trolley of mass 2.0 kg is pulled along a level bench by a constant force."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "parts": [
+                {
+                  "id": "q2-s1",
+                  "type": "short-answer",
+                  "stem": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "State Newton's second law of motion."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "suggestedAnswer": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "The resultant force on an object equals its mass multiplied by its acceleration."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "points": 1
+                },
+                {
+                  "id": "q2-s2",
+                  "stem": {
+                    "type": "document",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "The trolley accelerates at 1.5 m/s²."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "subparts": [
+                    {
+                      "id": "q2-s2-s1",
+                      "type": "short-answer",
+                      "stem": {
+                        "type": "document",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "Calculate the resultant force on the trolley."
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "suggestedAnswer": {
+                        "type": "document",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "F = ma = 2.0 × 1.5 = 3.0 N"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "points": 2
+                    },
+                    {
+                      "id": "q2-s2-s2",
+                      "type": "multiple-choice",
+                      "stem": {
+                        "type": "document",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "The pulling force is doubled. What happens to the acceleration?"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "choices": [
+                        {
+                          "id": "q2-s2-s2-c1",
+                          "content": {
+                            "type": "document",
+                            "content": [
+                              {
+                                "type": "paragraph",
+                                "content": [
+                                  {
+                                    "type": "text",
+                                    "text": "It halves."
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "correct": false
+                        },
+                        {
+                          "id": "q2-s2-s2-c2",
+                          "content": {
+                            "type": "document",
+                            "content": [
+                              {
+                                "type": "paragraph",
+                                "content": [
+                                  {
+                                    "type": "text",
+                                    "text": "It stays the same."
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "correct": false
+                        },
+                        {
+                          "id": "q2-s2-s2-c3",
+                          "content": {
+                            "type": "document",
+                            "content": [
+                              {
+                                "type": "paragraph",
+                                "content": [
+                                  {
+                                    "type": "text",
+                                    "text": "It doubles."
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "correct": true
+                        }
+                      ],
+                      "points": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "q3",
+              "type": "short-answer",
+              "stem": {
+                "type": "document",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Explain why a parachutist reaches a terminal velocity."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "suggestedAnswer": {
+                "type": "document",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Air resistance increases with speed until it equals the weight, so the resultant force is zero and the parachutist stops accelerating."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "points": 3
+            }
+          ]
+        },
+        "media": []
+      }
+    }
+  ],
+  "exams": [
+    {
+      "format": "test-parrot/exam",
+      "formatVersion": "0.4.0",
+      "name": "Physics Paper 4: Forces",
+      "sections": [
+        {
+          "title": "",
+          "instructions": "Answer all questions."
+        }
+      ],
+      "paperStyle": "exam-board",
+      "positions": [
+        {
+          "question": {
+            "bank": "forces",
+            "question": "q1"
+          },
+          "section": 0,
+          "columns": 4
+        },
+        {
+          "question": {
+            "bank": "forces",
+            "question": "q2"
+          },
+          "section": 0
+        },
+        {
+          "question": {
+            "bank": "forces",
+            "question": "q3"
+          },
+          "section": 0,
+          "workSpace": {
+            "height": 128,
+            "style": "lines",
+            "fill": false
+          }
+        }
+      ]
+    }
+  ]
+}

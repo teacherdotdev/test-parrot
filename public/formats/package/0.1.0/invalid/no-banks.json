@@ -1,0 +1,11 @@
+{
+  "format": "test-parrot/package",
+  "formatVersion": "0.1.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "questionBanks": [],
+  "exams": []
+}

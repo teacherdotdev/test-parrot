@@ -1,0 +1,311 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.9.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "Pending Images",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "short-answer",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Use the map to name the bus stop farthest east."
+                }
+              ]
+            },
+            {
+              "type": "block-image",
+              "pending": {
+                "image": 1
+              },
+              "alt": "Map of the bus routes in the town of Riverton",
+              "caption": "Riverton Bus Routes, 2020"
+            }
+          ]
+        }
+      },
+      {
+        "id": "q2",
+        "type": "multiple-choice",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Which graph shows a function that is increasing everywhere?"
+                }
+              ]
+            }
+          ]
+        },
+        "choices": [
+          {
+            "id": "q2-c1",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "block-image",
+                  "pending": {
+                    "image": 2
+                  },
+                  "alt": "Graph of a parabola opening upward"
+                }
+              ]
+            },
+            "correct": false
+          },
+          {
+            "id": "q2-c2",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "block-image",
+                  "pending": {
+                    "image": 3
+                  },
+                  "alt": "Graph of a line rising left to right"
+                }
+              ]
+            },
+            "correct": true
+          },
+          {
+            "id": "q2-c3",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "block-image",
+                  "pending": {
+                    "image": 4
+                  },
+                  "alt": "Graph of a sine wave"
+                }
+              ]
+            },
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "q3",
+        "type": "multiple-choice",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "block-image",
+              "pending": {
+                "image": 1
+              },
+              "alt": "Map of the bus routes in the town of Riverton",
+              "caption": "Riverton Bus Routes, 2020"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Which bus route has the most stops on the map?"
+                }
+              ]
+            }
+          ]
+        },
+        "choices": [
+          {
+            "id": "q3-c1",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Route 4"
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": true
+          },
+          {
+            "id": "q3-c2",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Route 9"
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "q4",
+        "type": "short-answer",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Describe the circuit shown below."
+                }
+              ]
+            },
+            {
+              "type": "block-image",
+              "pending": {
+                "page": 4
+              },
+              "alt": "Circuit diagram with a battery and two resistors in series",
+              "authoredSize": 0.6
+            }
+          ]
+        }
+      },
+      {
+        "id": "q5",
+        "type": "multipart",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "block-image",
+              "pending": {
+                "image": 5
+              },
+              "alt": "Cartoon of a town hall standing in rising floodwater",
+              "caption": "The Rising River, 2019"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Source: Riverton Times, 2019 (adapted)"
+                }
+              ]
+            }
+          ]
+        },
+        "topics": [
+          "Imperialism"
+        ],
+        "parts": [
+          {
+            "id": "q5-s1",
+            "type": "multiple-choice",
+            "stem": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "What is the main idea of this cartoon?"
+                    }
+                  ]
+                }
+              ]
+            },
+            "choices": [
+              {
+                "id": "q5-s1-c1",
+                "content": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "The town was ready for floods."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "correct": false
+              },
+              {
+                "id": "q5-s1-c2",
+                "content": {
+                  "type": "document",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "The town was not ready for floods."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "correct": true
+              }
+            ]
+          },
+          {
+            "id": "q5-s2",
+            "type": "short-answer",
+            "stem": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Use the chart on page 4 to explain one cause of the flooding."
+                    }
+                  ]
+                },
+                {
+                  "type": "block-image",
+                  "pending": {
+                    "page": 4
+                  },
+                  "alt": "Bar chart of imperial trade, 1880 to 1910"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "media": []
+}

@@ -1,0 +1,8 @@
+Type,Title/ID,Points,Question Wording,Correct Answer,Choice 1,Choice 2,Choice 3,Choice 4,Choice 5
+MC,Capital,1,What is the capital of France?,C,London,Berlin,Paris,Madrid,
+TF,Sun,1,The sun is a star.,true,,,,,
+MR,Primes,2,Which of these numbers are prime?,"a,c",2,4,5,9,
+FB,Water,1,The chemical formula for water is ____.,,H2O,H₂O,,,
+ES,Essay,5,"Explain, in a paragraph, why the sky is blue.",,Rayleigh scattering of sunlight.,,,,
+MC,Planets,1,<p>Which planet is <b>largest</b>?</p>,2,Mars,Jupiter,Venus,,
+TF,Moon,1,The moon is a planet.,2,,,,,

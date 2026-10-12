@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://testparrot.com/formats/exam/0.1.0/schema.json",
+  "title": "Test Parrot Exam Record 0.1.0",
+  "description": "The composition of one Exam: its name and ordered positions, each referencing a Question in a Question Bank Record travelling in the same Test Parrot Package.",
+  "type": "object",
+  "required": [
+    "format",
+    "formatVersion",
+    "name",
+    "positions"
+  ],
+  "properties": {
+    "format": {
+      "const": "test-parrot/exam"
+    },
+    "formatVersion": {
+      "const": "0.1.0"
+    },
+    "name": {
+      "type": "string"
+    },
+    "positions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/position"
+      }
+    }
+  },
+  "$defs": {
+    "position": {
+      "type": "object",
+      "required": [
+        "question"
+      ],
+      "properties": {
+        "question": {
+          "type": "object",
+          "required": [
+            "bank",
+            "question"
+          ],
+          "properties": {
+            "bank": {
+              "type": "string",
+              "minLength": 1
+            },
+            "question": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "columns": {
+          "enum": [
+            1,
+            2,
+            4
+          ]
+        },
+        "answerOrder": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "workSpace": {
+          "$ref": "#/$defs/workSpace"
+        }
+      }
+    },
+    "workSpace": {
+      "type": "object",
+      "required": [
+        "height",
+        "style",
+        "fill"
+      ],
+      "properties": {
+        "height": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100000
+        },
+        "style": {
+          "enum": [
+            "blank",
+            "lines"
+          ]
+        },
+        "fill": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

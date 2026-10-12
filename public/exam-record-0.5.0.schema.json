@@ -1,0 +1,247 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://testparrot.com/formats/exam/0.5.0/schema.json",
+  "title": "Test Parrot Exam Record 0.5.0",
+  "description": "The composition of one Exam: its name, its test-page header lines, its Question Sections in print order and how each reads, how large its headings and text print, how its questions print, how far in from each edge its pages print, and its ordered positions, each placed in one of its Sections and referencing a Question in a Question Bank Record travelling in the same Test Parrot Package, with the incorrect answers a Multiple Choice position leaves off.",
+  "type": "object",
+  "required": [
+    "format",
+    "formatVersion",
+    "name",
+    "sections",
+    "positions"
+  ],
+  "properties": {
+    "format": {
+      "const": "test-parrot/exam"
+    },
+    "formatVersion": {
+      "const": "0.5.0"
+    },
+    "name": {
+      "type": "string"
+    },
+    "sections": {
+      "description": "The Exam's Question Sections, in the order they print. A Section holds Questions of any type. A Section no position belongs to is kept, and prints its heading and directions with nothing under them.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/section"
+      }
+    },
+    "headingSize": {
+      "description": "How large every heading on the Exam prints: its title, and each section heading and its directions. Absent means normal.",
+      "enum": [
+        "small",
+        "normal",
+        "large"
+      ]
+    },
+    "textSize": {
+      "description": "How large the Exam's questions, answers and answer-key lines print. Absent means normal.",
+      "enum": [
+        "small",
+        "normal",
+        "large"
+      ]
+    },
+    "paperStyle": {
+      "description": "How every question on the Exam prints (ADR-0041). `standard` circles T or F and a capital letter and adds nothing. `classic` prints an answer blank before each Multiple Choice and True/False number, letters answers and the Word Bank in lower case with the Word Bank above its Items, and rules three answer lines below a Short Answer Question or Part with no `workSpace`. `condensed` stands questions closer together, lays Multiple Choice answers across the line where they fit, rules three answer lines below a Short Answer Question or Part with no `workSpace`, and sets every Work Space's rows closer together, keeping its count of rows. `exam-board` prints on A4, labels questions `1`, Parts `(a)` and Subparts `(i)`, rules dotted answer lines (three below a Short Answer Question or Part with no `workSpace`), and prints each answer's Points as `[n]` at the right margin and each Multipart question's total beneath it, with the paper's total beneath the title (ADR-0045). Absent means standard.",
+      "enum": [
+        "standard",
+        "classic",
+        "condensed",
+        "exam-board"
+      ]
+    },
+    "header": {
+      "description": "The Exam's own wording for its test-page header lines, where it departs from Test Parrot's default blanks. `first` prints on the first test page and `later` on every other; underscores are the blanks. An empty string prints nothing but the paper's ID, which is never part of the line. Absent means the default.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "first": {
+          "type": "string"
+        },
+        "later": {
+          "type": "string"
+        }
+      }
+    },
+    "margins": {
+      "description": "How far in from each edge of the sheet the Exam's pages print, in inches, every side stated. Absent means three quarters of an inch on every side.",
+      "type": "object",
+      "required": [
+        "top",
+        "right",
+        "bottom",
+        "left"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "top": {
+          "$ref": "#/$defs/margin"
+        },
+        "right": {
+          "$ref": "#/$defs/margin"
+        },
+        "bottom": {
+          "$ref": "#/$defs/margin"
+        },
+        "left": {
+          "$ref": "#/$defs/margin"
+        }
+      }
+    },
+    "positions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/position"
+      }
+    }
+  },
+  "$defs": {
+    "section": {
+      "type": "object",
+      "required": [
+        "title",
+        "instructions"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "description": "The Section's heading, as the teacher wrote it. An empty string is a heading the teacher cleared, which prints nothing.",
+          "type": "string",
+          "maxLength": 500
+        },
+        "instructions": {
+          "description": "The Section's directions, as the teacher wrote them. An empty string is directions the teacher cleared, which print nothing.",
+          "type": "string",
+          "maxLength": 2000
+        }
+      }
+    },
+    "position": {
+      "type": "object",
+      "required": [
+        "question",
+        "section"
+      ],
+      "properties": {
+        "question": {
+          "type": "object",
+          "required": [
+            "bank",
+            "question"
+          ],
+          "properties": {
+            "bank": {
+              "type": "string",
+              "minLength": 1
+            },
+            "question": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "section": {
+          "description": "The index, from 0, into `sections` of the Section this position belongs to.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "columns": {
+          "enum": [
+            1,
+            2,
+            4
+          ]
+        },
+        "answerOrder": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "workSpace": {
+          "$ref": "#/$defs/workSpace"
+        },
+        "hiddenAnswers": {
+          "description": "The incorrect answers a Multiple Choice position leaves off: some of its Question's choice ids, each at most once. Never its correct answer; a Locked Answer named here is shown anyway.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "wordBankLayout": {
+          "description": "Where a Matching position's Word Bank prints: `beside` its Items, or `above` them in columns. Absent, the importer places it once, by the Exam's `paperStyle` and whether its widest answer fits a column beside the Items, and stores that.",
+          "enum": [
+            "beside",
+            "above"
+          ]
+        },
+        "wordBankLayoutSet": {
+          "description": "Whether the teacher chose this Matching position's `wordBankLayout`, rather than it being placed by the Exam's `paperStyle` and the fit rule. A chosen layout stays where it is when the Exam later changes style; any other is placed again. Read only beside a `wordBankLayout`. Absent means false.",
+          "type": "boolean"
+        },
+        "pictureSizes": {
+          "description": "How wide this Exam prints some of its Question's block pictures: each an Exam Picture Size, which wins over the picture's Default Picture Size (its `authoredSize`) on this Exam alone. `picture` counts, from 1, the Question's `block-image` nodes in the Question Bank Record in this order: its `stem`; then each of its `choices`, `prompts` and `wordBank` answers in turn; then its `suggestedAnswer`; then each Part in turn, itself in that order — its `stem`, `choices` and `suggestedAnswer`, then each of its Subparts' the same way. Within each document, nodes are counted depth first in document order, Pending Images included. `size` is the width of what the picture shows as a share of its container, 0.05 to 1. Each picture appears at most once.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "picture",
+              "size"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "picture": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "size": {
+                "type": "number",
+                "minimum": 0.05,
+                "maximum": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "workSpace": {
+      "description": "Room left below a Short Answer Question for a student's working. A `height` of 0 with `fill` false is no room, set on purpose: it wins over the room a `paperStyle` would otherwise rule there.",
+      "type": "object",
+      "required": [
+        "height",
+        "style",
+        "fill"
+      ],
+      "properties": {
+        "height": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100000
+        },
+        "style": {
+          "enum": [
+            "blank",
+            "lines"
+          ]
+        },
+        "fill": {
+          "type": "boolean"
+        }
+      }
+    },
+    "margin": {
+      "description": "One margin, in inches.",
+      "type": "number",
+      "minimum": 0.5,
+      "maximum": 1.5
+    }
+  }
+}

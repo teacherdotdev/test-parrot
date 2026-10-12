@@ -1,0 +1,48 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.5.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "Published Provenance",
+    "description": "A bank published to demonstrate declared provenance.",
+    "author": "Ada Teacher",
+    "license": {
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "type": "short-answer",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Read the source",
+                  "marks": [
+                    {
+                      "type": "link",
+                      "href": "https://example.org/reading"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "media": [],
+  "publisherNote": {
+    "ignoredOptionalField": true
+  }
+}

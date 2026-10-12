@@ -1,0 +1,48 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.3.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "Media Rich",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "short-answer",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Describe the image."
+                }
+              ]
+            },
+            {
+              "type": "block-image",
+              "asset": "sha256:c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77",
+              "alt": "White pixel",
+              "caption": "A portable PNG",
+              "authoredSize": 0.5
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "media": [
+    {
+      "id": "sha256:c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77",
+      "mimeType": "image/png",
+      "width": 2,
+      "height": 1,
+      "bytes": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+    }
+  ]
+}

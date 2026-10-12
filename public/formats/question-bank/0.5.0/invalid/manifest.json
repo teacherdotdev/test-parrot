@@ -1,0 +1,17 @@
+{
+  "bad-reference.json": "dangling-reference",
+  "invalid-media.json": "invalid-media",
+  "malformed-matching.json": "dangling-reference",
+  "malformed-multipart.json": "invalid-question",
+  "malformed-question.json": "invalid-structure",
+  "malformed-true-false.json": "invalid-structure",
+  "pending-empty.json": "dangling-reference",
+  "pending-image-and-page.json": "invalid-question",
+  "pending-negative-page.json": "invalid-question",
+  "pending-unknown-member.json": "invalid-question",
+  "pending-with-asset.json": "invalid-question",
+  "pending-zero.json": "invalid-question",
+  "unsafe-url.json": "unsafe-url",
+  "unsupported-required-feature.json": "unsupported-feature",
+  "unsupported-version.json": "unsupported-version"
+}

@@ -1,0 +1,27 @@
+---
+status: accepted
+---
+
+# Store Sections that an Exam arranges
+
+A Question Section used to be derived from Question Type and never stored. An Exam had at most one Section per type, always in the same order, and ADR-0025 keyed each Section's wording by its type. Teachers wanted to arrange Sections themselves: two parts of Multiple Choice with their own headings, say, or a warm-up that mixes kinds of question.
+
+A Section is therefore stored in the Exam. It has a Section Heading, Section Directions and an ordered list of Questions of any type. Every Question belongs to exactly one Section, and question numbering still runs continuously across the whole Exam.
+
+We first built Sections typed and exclusive: each held one type, and an Exam could have several Sections of a type. After using it, we dropped the type. It added rules a teacher had to learn, such as where a question may not go and why a drop was refused, and it bought very little. A Section's type only decided its default wording, and a teacher who mixes types writes their own directions anyway. So a Section is just a Section. Its heading and directions begin as those of the type of the first Question put in it, and from then on they are the teacher's own text. An empty string is a part the teacher cleared, which prints nothing.
+
+A Section is created only by putting a Question somewhere no existing Section is:
+
+- The first Question added to an empty Exam creates a Section.
+- Add, and Add all, go to the end of the last Section.
+- When a drag's drop line has rested at a Section's last Question for 200ms, the sheet opens beneath it, pushing the next Section down, and shows the Section a drop would make — its heading, directions and, for a move within the Exam, the questions being moved — faintly, under a "Drop here to create a new section" label. Dropping there creates that Section directly below. The delay keeps a passing drag from opening it, and drawing the Section it would make keeps the sheet from jumping when it is made.
+
+A Section is removed only on purpose. An emptied Section stays, and prints its heading and directions on the student test as on the sheet. Leaving it out of the export was tried and rejected: a Section that showed on the sheet but vanished from the paper moved questions onto different pages from the ones the teacher saw. It has no group in the Answer Key, which has no answers to give for it. On the sheet an empty Section's heading is where a drag drops into it, and it says so only while it is pointed at. Automatic removal was rejected because dragging the last Question out of a Section and then dragging a new one in is ordinary editing, and it should not destroy the Section's wording. Each Section has up and down arrows and a delete button in the gutter to the left of the sheet; they appear whenever the pointer is anywhere across that Section's rows. Delete Removes the Section's Questions. It can be undone, so it asks for no confirmation. Pointing at those controls highlights the whole Section they act on, across the paper's full width; editing its heading highlights nothing. On the sheet only, while the pointer is in a Section — or, mid-drag, while the drag would land in it — dashed rules across the full width mark its top and bottom, drawn without changing the layout — its real top and bottom only, never where it runs over a page break (ADR-0040). The new-Section target a drag opens is ruled off the same way, above it — between the drop line and the target — and below it.
+
+Replace is withdrawn. It existed so that a Question could take another's position without crossing a Section boundary. Dragging now only inserts, and this supersedes ADR-0011's manual Replace. Vary and export Versions (ADR-0028) shuffle Questions only within their own Section. The Answer Key groups its entries by Section; a Section whose heading is cleared is named by its place ("Section 2").
+
+The answer blank that printed before each Multiple Choice and True/False number is removed from the sheet, print and DOCX, and every Question gets the narrow number column Short Answer already used. The Question lane widens by the difference. A student now circles a Multiple Choice letter. A True/False Question prints a T and an F beside its number to circle, which supersedes ADR-0020's "the pair is not printed". Matching Items keep their blanks, because a Matching answer is a letter the student writes.
+
+An Exam written before Sections were stored reads as one Section per non-empty type, in the old fixed order, carrying each type's stored wording. Its first structural edit stores those Sections, so nothing on the printed page moves. Export Records are unchanged. Exam Record 0.3.0 carries the Sections, empty ones included, and each position's Section. Test Parrot keeps reading 0.1.0 and 0.2.0 records by deriving their Sections the old way.
+
+Nothing stored before Sections were stored is lost to them. An Exam written earlier reads as one Section per Question Type, worded by its per-type `sectionHeadings`, and is not rewritten until the teacher changes its Sections. Its `sectionHeadings` stay even then, so a Section later begun for a type it had no Questions of starts from what the teacher wrote for that type. An Export Record made earlier is never rewritten: as it is read, each question's answer blank becomes the mark it printed, in the number column it printed in, and each Section heading's Question Type becomes its Section id, so it previews and reprints as it did.

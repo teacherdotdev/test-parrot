@@ -1,0 +1,131 @@
+{
+  "format": "test-parrot/question-bank",
+  "formatVersion": "0.5.0",
+  "generator": {
+    "name": "Contract Fixture Publisher",
+    "version": "1.0.0"
+  },
+  "requiredFeatures": [],
+  "bank": {
+    "name": "True/False",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "true-false",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Water boils at 100 degrees Celsius at sea level."
+                }
+              ]
+            }
+          ]
+        },
+        "choices": [
+          {
+            "id": "q1-c1",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "True"
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": true
+          },
+          {
+            "id": "q1-c2",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "False"
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "q2",
+        "type": "true-false",
+        "stem": {
+          "type": "document",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The Moon generates its own light."
+                }
+              ]
+            }
+          ]
+        },
+        "difficulty": "easy",
+        "topics": [
+          "Astronomy"
+        ],
+        "choices": [
+          {
+            "id": "q2-c1",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "True"
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": false
+          },
+          {
+            "id": "q2-c2",
+            "content": {
+              "type": "document",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "False"
+                    }
+                  ]
+                }
+              ]
+            },
+            "correct": true
+          }
+        ]
+      }
+    ]
+  },
+  "media": []
+}

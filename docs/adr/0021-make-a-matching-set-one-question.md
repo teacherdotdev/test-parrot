@@ -1,0 +1,17 @@
+---
+status: accepted
+---
+
+# Make a matching set one Question that takes several numbers
+
+Tests have matching sections: a handful of items on one side and a word bank of answers on the other. Source tests print one in two ways. A short set is two columns — numbered items with blanks down the left, a lettered word bank down the right. A long set puts the word bank above the items, in two columns, and the numbered items underneath. In both, every item carries its own test number, the word bank is shared by the whole set, and the answer key lists one letter per number.
+
+`'matching'` is therefore a fourth Question Type, between True/False and Short Answer in Section order — but unlike the other three, one Question of it is a whole _set_. Its stem is the set's directions (“Match each event to the correct time period.”), it holds its Items and its Word Bank, and on the test it takes one number per Item: the numbers print on the Items and the stem prints unnumbered. Modelling an Item as a Question of its own was rejected because the Word Bank is what makes the Items one thing — an Exam that took three Items from one set and two from another would need a bank nobody authored — and because the Question Bank should keep a set the way a teacher thinks of it. The cost is that `number` is no longer one per Question: the plan numbers continuously by how many numbers a Question takes, and the Answer Key derives one line per Item.
+
+An Item matches an answer by the answer's stable id, not by its letter. Letters are positions, exactly as a Multiple Choice choice's letter is, so Vary may shuffle a Word Bank the way it shuffles answers and every Item keeps its match under a new letter; Items themselves are never shuffled, since they are numbered in place. The Word Bank reuses the arrangement's `choiceOrder` and the model's `choicesOf`, so duplication, shuffling and order tolerance work as they already did; an answer's `correct` is always false there, because correctness belongs to the Item that names it. Several Items may name the same answer, an unnamed answer is a distractor, and an unmatched Item is incomplete rather than invalid — the same stance as a Multiple Choice question with no correct answer marked.
+
+The editor draws the set as the paper does: Items down the left, each with a pick control where a choice keeps its radio, and the lettered Word Bank down the right. The pick controls list the bank's letters, and because the bank is not any Item's own content, a plugin brings every control up to date from the document after each change rather than trusting a node view to be told. The set is regrown if deleted, as a True/False pair is, since there is no other way to put one back.
+
+Where the Word Bank prints is decided by the plan, not the teacher: up to five answers print beside the Items in a column of their own, and a longer bank prints above them in two columns, column-major. Both shapes are one atomic page item — a bank on a different page from its Items is no use to a student.
+
+The exchange format follows the only way its compatibility rule allows: a `0.2.0` consumer must reject an unknown Question Type, so the Question Bank Record is now `0.3.0`, published beside `0.2.0` and `0.1.0` rather than in place of them. A record Matching Question carries `prompts` and `wordBank`, each Item naming its answer by package-local id; `/extract` converts one whole set as one Question, even though each Item carries its own number in the source, and never splits a set or merges two banks.
