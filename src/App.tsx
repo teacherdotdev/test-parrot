@@ -138,6 +138,7 @@ import {
   CircleDot,
   Crop,
   FileType2,
+  ExternalLink,
   FolderInput,
   FolderOpen,
   Gauge,
@@ -211,7 +212,7 @@ import { UNTITLED_FOLDER } from './resource-places'
 import { AboutPage, PrivacyPage } from './site-pages'
 import { SettingsPage } from './settings-page'
 import { persistentStorageStatus, requestPersistentStorage, type PersistentStorageStatus } from './durable-storage'
-import { LIBRARY_CHANGED_EVENT, useDriveSync } from './drive/drive-sync-context'
+import { driveUrlOf, LIBRARY_CHANGED_EVENT, useDriveSync } from './drive/drive-sync-context'
 import { OpenFromDrivePage } from './drive/open-page'
 import { BankFileDropTarget } from './bank-file-drop'
 import { ImportsPage, WaitingImportPage } from './imports-page'
@@ -1829,6 +1830,9 @@ function QuestionBankPage({
 }) {
   const [bank, setBank] = useState(initialBank)
   const popOver = usePopOver()
+  const drive = useDriveSync()
+  // Once this bank is synced, its Drive Copy is a click away (ADR-0052).
+  const inDrive = drive?.connected ? driveUrlOf(drive.state, { kind: 'bank', id: bank.id }) : null
   const [name, setName] = useState(initialBank.name)
   const [filter, setFilter] = useState<QuestionBankFilter>(NO_FILTER)
   const [nameError, setNameError] = useState<string | null>(null)
@@ -1940,6 +1944,10 @@ function QuestionBankPage({
             <Import aria-hidden="true" />
             Import
           </button>
+          {inDrive && <a className="secondary-button drive-link-button" href={inDrive} target="_blank" rel="noopener noreferrer">
+            <ExternalLink aria-hidden="true" />
+            Open in Google Drive
+          </a>}
         </>}
         service={bankWorkspaces}
         filter={filter}

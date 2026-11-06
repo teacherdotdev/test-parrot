@@ -52,3 +52,7 @@
 
 .trash-drive-warning { font-weight: 600; }
 .sync-panel .sync-privacy { margin-top: 10px; padding-top: 8px; border-top: 1px solid #eadfce; }
+
+/* "Open in Google Drive" is a link dressed as the buttons beside it. */
+.drive-link-button { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; text-decoration: none; }
+.drive-link-button svg { width: 15px; height: 15px; }
