@@ -14,7 +14,23 @@ import { createLibraryService } from './library'
 import { applyStagedRestore } from './account-backup'
 import { expireWaitingImports } from './import-history'
 import { PopOverProvider } from './question-bank-pop-over'
+import { onUpgradeBlocked } from './storage-schema'
 import './styles.css'
+
+// Opening the database after an update waits while a tab still running the
+// older Test Parrot holds it. Say so, so the page is never just blank.
+onUpgradeBlocked((blocked) => {
+  const existing = document.getElementById('upgrade-blocked')
+  if (!blocked) { existing?.remove(); return }
+  if (existing) return
+  const notice = document.createElement('div')
+  notice.id = 'upgrade-blocked'
+  notice.className = 'upgrade-blocked'
+  notice.setAttribute('role', 'alert')
+  notice.innerHTML = '<strong>Test Parrot has been updated.</strong>'
+    + '<span>Close your other Test Parrot tabs to finish. This page will carry on by itself; nothing is lost.</span>'
+  document.body.append(notice)
+})
 
 async function start() {
   if ('serviceWorker' in navigator) {

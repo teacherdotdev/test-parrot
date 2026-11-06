@@ -19,6 +19,7 @@ import {
   MEDIA_ASSET_STORE,
   STORAGE_NAME,
   STORAGE_VERSION,
+  waitWhileBlocked,
 } from './storage-schema'
 
 export { STORAGE_NAME } from './storage-schema'
@@ -49,7 +50,7 @@ export type IndexedDBAuthoringRecords = {
 
 function openDatabase(databaseName: string): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open(databaseName, DATABASE_VERSION)
+    const request = waitWhileBlocked(indexedDB.open(databaseName, DATABASE_VERSION))
     request.onupgradeneeded = () => {
       const database = request.result
       if (!database.objectStoreNames.contains(QUESTION_BANK_STORE)) {
@@ -81,7 +82,6 @@ function openDatabase(databaseName: string): Promise<IDBDatabase> {
       resolve(request.result)
     }
     request.onerror = () => reject(request.error)
-    request.onblocked = () => reject(new Error(`Could not open ${databaseName}`))
   })
 }
 

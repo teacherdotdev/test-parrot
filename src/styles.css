@@ -4437,3 +4437,11 @@ button.pop-over-chip-option[aria-pressed='true'] svg { visibility: visible; }
 
 .app-topbar .library-search + .app-topbar-actions { margin-left: 0; }
 .library-view-controls .secondary-button { min-height: 30px; padding: 5px 10px; font-size: 13px; }
+
+/* Shown while an update waits for a tab still on the older Test Parrot. */
+.upgrade-blocked {
+  position: fixed; top: 24px; left: 50%; z-index: 2000; display: grid; gap: 4px;
+  width: min(440px, calc(100vw - 32px)); padding: 14px 18px; border: 1px solid #e0d3c2; border-radius: 10px;
+  color: #332a24; font-size: 14px; background: #fffdf8; box-shadow: 0 8px 24px rgb(91 68 47 / 18%);
+  transform: translateX(-50%);
+}

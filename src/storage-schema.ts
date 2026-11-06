@@ -73,3 +73,34 @@ export function releasedOnVersionChange(database: IDBDatabase): IDBDatabase {
   database.onversionchange = () => database.close()
   return database
 }
+
+type UpgradeBlockedListener = (blocked: boolean) => void
+const upgradeBlockedListeners = new Set<UpgradeBlockedListener>()
+let blockedOpens = 0
+
+/** Hears when opening a database starts and stops waiting on another tab. */
+export function onUpgradeBlocked(listener: UpgradeBlockedListener): () => void {
+  upgradeBlockedListeners.add(listener)
+  return () => { upgradeBlockedListeners.delete(listener) }
+}
+
+/**
+ * Lets an open that must upgrade the database wait out a tab still holding it
+ * at the older version, saying so rather than failing or leaving the page
+ * blank. A tab running an older Test Parrot does not let go when asked, so the
+ * upgrade goes ahead only once that tab is closed or reloaded; the open then
+ * finishes on its own.
+ */
+export function waitWhileBlocked(request: IDBOpenDBRequest): IDBOpenDBRequest {
+  request.addEventListener('blocked', () => {
+    blockedOpens += 1
+    for (const listener of upgradeBlockedListeners) listener(true)
+    const settled = () => {
+      blockedOpens -= 1
+      if (blockedOpens === 0) for (const listener of upgradeBlockedListeners) listener(false)
+    }
+    request.addEventListener('success', settled, { once: true })
+    request.addEventListener('error', settled, { once: true })
+  }, { once: true })
+  return request
+}

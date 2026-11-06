@@ -18,6 +18,7 @@ import {
   STORAGE_VERSION,
   releasedOnVersionChange,
   upgradeRegistry,
+  waitWhileBlocked,
 } from './storage-schema'
 
 export const UNTITLED_QUESTION_BANK = 'Untitled Question Bank'
@@ -240,11 +241,10 @@ function completionOf(transaction: IDBTransaction): Promise<void> {
 
 function openRegistry(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open(STORAGE_NAME, STORAGE_VERSION)
+    const request = waitWhileBlocked(indexedDB.open(STORAGE_NAME, STORAGE_VERSION))
     request.onupgradeneeded = (event) => upgradeRegistry(request.result, request.transaction, event.oldVersion)
     request.onsuccess = () => resolve(releasedOnVersionChange(request.result))
     request.onerror = () => reject(request.error)
-    request.onblocked = () => reject(new Error(`Could not open ${STORAGE_NAME}`))
   })
 }
 

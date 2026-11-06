@@ -15,7 +15,7 @@ import {
   UNTITLED_FOLDER,
   type FolderRecord,
 } from './resource-places'
-import { FOLDER_STORE, releasedOnVersionChange, STORAGE_NAME, STORAGE_VERSION, upgradeRegistry } from './storage-schema'
+import { FOLDER_STORE, releasedOnVersionChange, STORAGE_NAME, STORAGE_VERSION, upgradeRegistry, waitWhileBlocked } from './storage-schema'
 
 export type EntryKind = 'folder' | 'exam' | 'bank'
 export type EntryRef = { kind: EntryKind; id: string }
@@ -71,7 +71,7 @@ function completionOf(transaction: IDBTransaction): Promise<void> {
 
 function openRegistry(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open(STORAGE_NAME, STORAGE_VERSION)
+    const request = waitWhileBlocked(indexedDB.open(STORAGE_NAME, STORAGE_VERSION))
     request.onupgradeneeded = (event) => upgradeRegistry(request.result, request.transaction, event.oldVersion)
     request.onsuccess = () => resolve(releasedOnVersionChange(request.result))
     request.onerror = () => reject(request.error)

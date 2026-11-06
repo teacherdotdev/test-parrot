@@ -1,5 +1,4 @@
 const registryDatabaseName = 'test-parrot-exams-v1'
-const databaseVersion = 8
 const mediaStore = 'media-assets'
 
 self.addEventListener('install', () => self.skipWaiting())
@@ -7,7 +6,12 @@ self.addEventListener('activate', (event) => event.waitUntil(self.clients.claim(
 
 function openDatabase(name) {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open(name, databaseVersion)
+    // No version: read whatever version the app has brought the database to,
+    // so an upgrade never leaves this worker behind. Opening with no version
+    // creates a database that is not there; abort that, and leave creating
+    // it to the app.
+    const request = indexedDB.open(name)
+    request.onupgradeneeded = () => request.transaction.abort()
     request.onerror = () => reject(request.error)
     request.onsuccess = () => resolve(request.result)
   })
