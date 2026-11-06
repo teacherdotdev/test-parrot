@@ -8,6 +8,7 @@
 // clipped, shrunk or repaginated, and the pages it does so on are reported so
 // the teacher is told to check them (ADR-0046).
 
+import './fontkit-runtime'
 import fontkit from '@pdf-lib/fontkit'
 import {
   AFRelationship,

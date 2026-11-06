@@ -9,6 +9,7 @@ import {
   ArrowRightLeft,
   Copy,
   EllipsisVertical,
+  ExternalLink,
   FileText,
   Folder,
   FolderInput,
@@ -27,6 +28,7 @@ import {
   Upload,
   X,
 } from 'lucide-react'
+import { driveUrlOf, useDriveSync } from './drive/drive-sync-context'
 import { AppShell, type Crumb } from './app-shell'
 import { LibraryActionsContext, type LibraryActions } from './library-actions'
 import type { PersistentStorageStatus } from './durable-storage'
@@ -313,6 +315,7 @@ export function LibraryPage({
   const search = useLocationSearch()
   const params = useMemo(() => new URLSearchParams(search), [search])
   const popOver = usePopOver()
+  const drive = useDriveSync()
   const [layout, setLayout] = useLayout()
   const [selection, setSelection] = useState<{ view: string; keys: Set<string> }>({ view: '', keys: new Set() })
   const anchor = useRef<string | null>(null)
@@ -431,6 +434,11 @@ export function LibraryPage({
     if (entry.kind === 'bank') {
       if (popOver.supported) items.push({ kind: 'action', label: 'Pop-over', icon: <PictureInPicture2 />, onSelect: () => popOver.open(entry.id) })
       items.push({ kind: 'action', label: 'Export', icon: <Upload />, disabled: entry.bank.questionCount === 0, onSelect: () => onExportBank(entry.id) })
+    }
+    // Once synced, the Drive Copy (or Drive folder) is a click away (ADR-0052).
+    const inDrive = drive?.connected ? driveUrlOf(drive.state, entry) : null
+    if (inDrive) {
+      items.push({ kind: 'action', label: 'View in Google Drive', icon: <ExternalLink />, onSelect: () => { window.open(inDrive, '_blank', 'noopener') } })
     }
     items.push(
       { kind: 'separator' },

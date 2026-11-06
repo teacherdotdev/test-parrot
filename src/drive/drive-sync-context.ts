@@ -71,3 +71,14 @@ export function openResource(target: LocalRef) {
   if (target.kind === 'exam') window.location.assign(`/editor?exam=${encodeURIComponent(target.id)}`)
   else navigate(`/question-bank?id=${encodeURIComponent(target.id)}`)
 }
+
+/** Where a Resource's Drive Copy, or a Folder's Drive folder, is in Google
+ *  Drive; null when it has none this browser knows of. */
+export function driveUrlOf(state: SyncState, ref: { kind: string; id: string }): string | null {
+  if (ref.kind === 'folder') {
+    const folderId = state.folders[ref.id]
+    return folderId ? `https://drive.google.com/drive/folders/${encodeURIComponent(folderId)}` : null
+  }
+  const entry = state.files[`${ref.kind}:${ref.id}`]
+  return entry && !entry.trashed ? `https://drive.google.com/file/d/${encodeURIComponent(entry.fileId)}/view` : null
+}

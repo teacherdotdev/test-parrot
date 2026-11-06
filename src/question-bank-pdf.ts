@@ -1,3 +1,4 @@
+import './fontkit-runtime'
 import fontkit from '@pdf-lib/fontkit'
 import {
   AFRelationship,
