@@ -715,6 +715,9 @@ button { cursor: pointer; }
 }
 .question-bank-header h2 { margin: 0; font-size: 16px; }
 .question-bank-header-actions { display: flex; align-items: center; gap: 6px; }
+/* The bank page's More button: a ghost icon after New question. */
+.question-bank-more-button { border-color: transparent; background: transparent; }
+.question-bank-more-button:hover, .question-bank-more-button[aria-expanded='true'] { background: #f2e6d8; color: var(--paper-accent); }
 .question-bank-header .secondary-button, .question-bank-header .primary-button {
   display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 6px 11px;
 }

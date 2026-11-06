@@ -166,7 +166,7 @@ import {
   Undo2,
   X,
 } from 'lucide-react'
-import { ContextMenu, type MenuPoint } from './context-menu'
+import { ContextMenu, type MenuItem, type MenuPoint } from './context-menu'
 import { MarginsPanel } from './margins-panel'
 import { usePopOver } from './pop-over-context'
 import {
@@ -205,7 +205,6 @@ import { createLibraryService, type DeletionWarning, type EntryRef, type Library
 import { LibraryPage } from './library-page'
 import { draggedRefs, folderHref, folderOfRoute, libraryViewOf } from './library-routes'
 import { MoveDialog, NameDialog, TrashDialog } from './library-dialogs'
-import { FolderPath } from './folder-path'
 import { BankPicker } from './bank-picker'
 import type { FolderRecord } from './resource-places'
 import { UNTITLED_FOLDER } from './resource-places'
@@ -1275,7 +1274,7 @@ function QuestionBankWorkspace({
   bank,
   layout,
   heading,
-  extraActions,
+  moreItems,
   service,
   filter,
   onFilterChange,
@@ -1296,7 +1295,7 @@ function QuestionBankWorkspace({
    *  the bank and adds the actions that belong to the surface rather than to
    *  the bank. See `QuestionBankPane`. */
   heading?: ReactNode
-  extraActions?: ReactNode
+  moreItems?: readonly MenuItem[]
   service: QuestionBankWorkspaceService
   filter: QuestionBankFilter
   onFilterChange: (filter: QuestionBankFilter) => void
@@ -1326,7 +1325,7 @@ function QuestionBankWorkspace({
       bank={{ questions: bank.questions }}
       layout={layout}
       heading={heading}
-      extraActions={extraActions}
+      {...(moreItems ? { moreItems } : {})}
       workingCopyIds={workingCopyIds}
       filter={filter}
       onFilterChange={onFilterChange}
@@ -1831,6 +1830,7 @@ function QuestionBankPage({
   const [bank, setBank] = useState(initialBank)
   const popOver = usePopOver()
   const drive = useDriveSync()
+  const [movingBank, setMovingBank] = useState<{ parentId: string | null; folders: Map<string, FolderRecord> } | null>(null)
   // Once this bank is synced, its Drive Copy is a click away (ADR-0052).
   const inDrive = drive?.connected ? driveUrlOf(drive.state, { kind: 'bank', id: bank.id }) : null
   const [name, setName] = useState(initialBank.name)
@@ -1922,7 +1922,6 @@ function QuestionBankPage({
               <Pencil aria-hidden="true" />
             </button>
           </div>
-          <FolderPath library={library} resource={{ kind: 'bank', id: bank.id }} name={bank.name} />
           <BankPageFacts
             bank={bank}
             picturesNeeded={pendingPictures.length}
@@ -1930,25 +1929,30 @@ function QuestionBankPage({
           />
           {nameError && <p className="home-error bank-name-error" role="alert">{nameError}</p>}
         </div>}
-        extraActions={<>
-          {popOver.supported && <button
-            type="button"
-            className="secondary-button"
-            title="Keep this Question Bank on top of other windows, to copy Questions from"
-            onClick={() => popOver.open(bank.id)}
-          >
-            <PictureInPicture2 aria-hidden="true" />
-            Pop-over
-          </button>}
-          <button type="button" className="secondary-button" aria-haspopup="dialog" onClick={() => onImportInto(bank.id)}>
-            <Import aria-hidden="true" />
-            Import
-          </button>
-          {inDrive && <a className="secondary-button drive-link-button" href={inDrive} target="_blank" rel="noopener noreferrer">
-            <ExternalLink aria-hidden="true" />
-            Open in Google Drive
-          </a>}
-        </>}
+        moreItems={[
+          ...(popOver.supported ? [{
+            kind: 'action' as const,
+            label: 'Pop-over',
+            icon: <PictureInPicture2 />,
+            onSelect: () => popOver.open(bank.id),
+          }] : []),
+          { kind: 'action', label: 'Import', icon: <Import />, onSelect: () => onImportInto(bank.id) },
+          {
+            kind: 'action',
+            label: 'Move…',
+            icon: <FolderInput />,
+            onSelect: () => {
+              void Promise.all([library.placeOf({ kind: 'bank', id: bank.id }), library.folders()])
+                .then(([parentId, folders]) => setMovingBank({ parentId, folders }))
+            },
+          },
+          ...(inDrive ? [{
+            kind: 'action' as const,
+            label: 'Open in Google Drive',
+            icon: <ExternalLink />,
+            onSelect: () => { window.open(inDrive, '_blank', 'noopener') },
+          }] : []),
+        ]}
         service={bankWorkspaces}
         filter={filter}
         onFilterChange={setFilter}
@@ -1957,6 +1961,18 @@ function QuestionBankPage({
         examsService={workspaces}
       />
     </div>
+    {movingBank && <MoveDialog
+      title={`Move “${bank.name}”`}
+      moving={[{ kind: 'bank', id: bank.id }]}
+      from={[movingBank.parentId]}
+      startAt={movingBank.parentId}
+      folders={movingBank.folders}
+      onCancel={() => setMovingBank(null)}
+      onMove={async (folderId) => {
+        await library.move([{ kind: 'bank', id: bank.id }], folderId)
+        setMovingBank(null)
+      }}
+    />}
     {resolvingPictures && <ResolveImagesDialog
       occurrences={pendingPictures}
       onClose={() => setResolvingPictures(false)}
