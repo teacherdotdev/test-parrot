@@ -15,6 +15,7 @@ import { applyStagedRestore } from './account-backup'
 import { expireWaitingImports } from './import-history'
 import { PopOverProvider } from './question-bank-pop-over'
 import { onUpgradeBlocked } from './storage-schema'
+import { DriveSyncProvider } from './drive/drive-sync'
 import './styles.css'
 
 // Opening the database after an update waits while a tab still running the
@@ -109,6 +110,7 @@ async function start() {
   const live = entries.filter((entry) => !library.inTrash(entry, folders))
   const exams = live.flatMap((entry) => (entry.kind === 'exam' ? [entry.exam] : []))
   const collection = live.flatMap((entry) => (entry.kind === 'bank' ? [entry.bank] : []))
-  createRoot(document.getElementById('root')!).render(<StrictMode><MilkdownProvider><PopOverProvider service={bankWorkspaces}><App store={store} bank={bank} workspaces={workspaces} bankWorkspaces={bankWorkspaces} library={library} initialExams={exams} initialBankCollection={collection} persistentStorage={storageStatus} initialEditorId={editorId} initialError={error} /></PopOverProvider></MilkdownProvider></StrictMode>)
+  const driveServices = { library, workspaces, bankWorkspaces }
+  createRoot(document.getElementById('root')!).render(<StrictMode><DriveSyncProvider services={driveServices}><MilkdownProvider><PopOverProvider service={bankWorkspaces}><App store={store} bank={bank} workspaces={workspaces} bankWorkspaces={bankWorkspaces} library={library} initialExams={exams} initialBankCollection={collection} persistentStorage={storageStatus} initialEditorId={editorId} initialError={error} /></PopOverProvider></MilkdownProvider></DriveSyncProvider></StrictMode>)
 }
 void start()

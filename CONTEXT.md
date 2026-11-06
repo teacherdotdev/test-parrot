@@ -77,8 +77,24 @@ Every import this browser has started, newest first: each test still waiting for
 _Avoid_: Import log, upload history
 
 **Account Backup**:
-One file holding everything Test Parrot keeps in a browser: every Exam, Question Bank, Working Copy, Export History, Media Asset and preference. Restoring one replaces the browser's whole account rather than merging into it; it is refused when it comes from a storage generation this version cannot read.
+One file holding everything Test Parrot keeps in a browser: every Exam, Question Bank, Working Copy, Export History, Media Asset and preference. Restoring one replaces the browser's whole account rather than merging into it; it is refused when it comes from a storage generation this version cannot read. With a Drive Connection, Sync with Drive keeps one Account Backup in the teacher's Test Parrot folder, replaced on every sync, so a new browser can be restored from Drive; it carries what Drive Copies do not, such as Export History and preferences. It never carries the Drive Connection itself.
 _Avoid_: Export, Question Bank File, archive
+
+**Drive Connection**:
+The one Google account a browser syncs with, chosen by the teacher and ended with Disconnect. Disconnecting stops syncing and leaves both the work in the browser and the Drive Copies as they are. Test Parrot works fully without one; with one, the browser still talks only to the teacher's own Google Drive, and Test Parrot's servers never see the work.
+_Avoid_: Login, account, Drive account
+
+**Sync with Drive**:
+One action that brings this browser and the teacher's Google Drive into agreement for every Resource: a Resource changed only here is sent to Drive, one changed only in Drive comes down, and one changed in both since this browser last synced it is skipped and listed for the teacher to choose Use theirs or Keep both. Nothing is ever merged. The browser is the working copy; Drive holds the synced one. Sending a Resource to Trash sends its Drive Copy to Drive's trash on the next sync, when the teacher owns it.
+_Avoid_: Backup, autosave, live sync, upload
+
+**Drive Copy**:
+The one PDF in Google Drive that holds one Resource, kept in the teacher's Test Parrot folder in Folders that mirror the Library's: a Question Bank's Question Bank File, or an Exam's student test followed by its answer key. Like those files it carries a Test Parrot Package, which is what Test Parrot reads back, and unlike them it keeps each Question's own identity, so an Exam brought down beside its bank still uses that bank's Questions. Its first page opens with an Open in Test Parrot banner, which no PDF made for students carries.
+_Avoid_: Drive file, cloud copy, upload
+
+**Shared Resource**:
+A Resource whose Drive Copy the owner has shared with colleagues through Google Drive's own sharing. It stays one live Drive Copy that every teacher with access syncs, each from their own browser. A teammate brings one in with Add from Google Drive or the Open in Test Parrot banner. Its owner's Trash sends it to Drive's trash for everyone; a teammate's Trash only takes it out of that teammate's Library.
+_Avoid_: Shared copy, collaboration, team bank
 
 **Difficulty**:
 An optional classification of a question as easy, medium, or hard.
@@ -124,7 +140,7 @@ A mutable composition with a stable identity and a name, made from live referenc
 _Avoid_: Exam project, exam family, Version, Draft
 
 **Resource**:
-An Exam or a Question Bank: something a teacher opens, organizes into Folders and finds on Home.
+An Exam or a Question Bank: something a teacher opens, organizes into Folders and finds on Home. With a Drive Connection, each Resource has one Drive Copy.
 _Avoid_: File, document, item
 
 **Folder**:
@@ -162,7 +178,7 @@ To exclude Question Content from an Exam while leaving it in its Question Bank, 
 To permanently remove a Question from its Question Bank, every Exam that references it, and their Working Copies. Deletion requires showing the affected Exams and explicit confirmation; existing Export Records remain unchanged. Deleting a Resource or Folder instead moves it to Trash, after a warning that counts what it holds and names the Exams using its Questions.
 
 **Trash**:
-Where deleted Resources and Folders wait for 30 days before they are deleted for good. While a Question Bank is in Trash, Exams keep its Questions unchanged; an Exam in Trash keeps its Export History and cannot be opened. Restore returns one to the Folder it came from, or to the top level when that Folder is gone. An untouched, empty Untitled Exam or Question Bank is discarded without passing through Trash.
+Where deleted Resources and Folders wait for 30 days before they are deleted for good. While a Question Bank is in Trash, Exams keep its Questions unchanged; an Exam in Trash keeps its Export History and cannot be opened. Restore returns one to the Folder it came from, or to the top level when that Folder is gone. An untouched, empty Untitled Exam or Question Bank is discarded without passing through Trash. With a Drive Connection, Trash is mirrored when the teacher syncs: a Resource the teacher owns sends its Drive Copy to Drive's trash, for everyone it is shared with, while a Shared Resource someone else owns only leaves this teacher's Library.
 _Avoid_: Bin, recycle bin, archive
 
 **Question Type**:

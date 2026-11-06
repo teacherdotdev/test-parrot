@@ -56,6 +56,9 @@ export type PlannedExam = {
 
 export type ImportPlan = {
   banks: PlannedBank[]
+  /** Where each package-local Question and answer landed, by package bank:
+   *  what a Drive Copy's identity map is read against (ADR-0052). */
+  identities: Map<string, Map<string, ImportedQuestionIdentity>>
   media: ParsedQuestionBankRecord['media']
   exams: PlannedExam[]
 }
@@ -207,5 +210,5 @@ export function planImport(
     }]
   })
 
-  return { banks, media: [...media.values()], exams }
+  return { banks, identities, media: [...media.values()], exams }
 }

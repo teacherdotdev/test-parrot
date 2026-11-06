@@ -915,6 +915,83 @@ export function createQuestionBankWorkspaceService(
         }
       })
     },
+    /**
+     * Writes a Question Bank that came down from its Drive Copy (ADR-0052):
+     * its name, provenance and Questions become the copy's, each Question
+     * keeping its own id. Questions the copy no longer holds leave the bank
+     * and every Exam, through `cascade`, as a deletion does. A bank new to this
+     * browser is made at `parentId`. Returns the bank and the Questions whose
+     * content changed, for the caller to carry into the Exams using them.
+     */
+    async applyDriveCopy(
+      copy: QuestionBankProvenance & {
+        id: string
+        name: string
+        parentId: string | null
+        questions: readonly Question[]
+        media: readonly { id: string; mimeType: string; bytes: Uint8Array; width: number; height: number }[]
+      },
+      cascade: DeletionCascade,
+    ): Promise<{ bank: QuestionBankResource; changed: Question[] }> {
+      const before = await readBank(await registry, copy.id)
+      const keep = new Set(copy.questions.map(({ id }) => id))
+      const removed = (before?.questions ?? []).map(({ id }) => id).filter((id) => !keep.has(id))
+      const exams = removed.length > 0 ? await cascade(removed) : null
+      const previous = new Map((before?.questions ?? []).map((question) => [question.id, JSON.stringify(question)]))
+      const timestamp = now().toISOString()
+      try {
+        await transact(
+          [QUESTION_BANK_REGISTRY_STORE, CANONICAL_QUESTION_STORE, MEDIA_ASSET_STORE],
+          'readwrite',
+          async (transaction) => {
+            const banks = transaction.objectStore(QUESTION_BANK_REGISTRY_STORE)
+            const questions = transaction.objectStore(CANONICAL_QUESTION_STORE)
+            const stored = await requestOf(banks.get(copy.id)) as StoredBank | undefined
+            const provenance = {
+              ...(copy.description !== undefined ? { description: copy.description } : {}),
+              ...(copy.author !== undefined ? { author: copy.author } : {}),
+              ...(copy.license !== undefined ? { license: { ...copy.license } } : {}),
+            }
+            if (stored) {
+              const rest: StoredBank = { ...stored }
+              delete rest.description
+              delete rest.author
+              delete rest.license
+              banks.put({ ...rest, ...provenance, name: copy.name, questionIds: [...keep], lastUpdatedAt: timestamp } satisfies StoredBank)
+            } else {
+              banks.add({
+                id: copy.id, name: copy.name, ...provenance, createdAt: timestamp, lastUpdatedAt: timestamp,
+                questionIds: [...keep], parentId: copy.parentId,
+              } satisfies StoredBank)
+            }
+            for (const id of removed) questions.delete(id)
+            for (const question of copy.questions) {
+              const owner = await requestOf(questions.get(question.id)) as StoredQuestion | undefined
+              if (owner && owner.bankId !== copy.id) throw new Error('That Question already belongs to another Question Bank.')
+              questions.put({ ...question, bankId: copy.id } satisfies StoredQuestion)
+            }
+            const media = transaction.objectStore(MEDIA_ASSET_STORE)
+            for (const asset of copy.media) {
+              media.put({
+                hash: asset.id.slice('sha256:'.length),
+                mimeType: asset.mimeType,
+                bytes: asset.bytes.slice().buffer,
+                width: asset.width,
+                height: asset.height,
+              })
+            }
+          },
+        )
+      } catch (error) {
+        await exams?.rollback()
+        throw error
+      }
+      await exams?.finalize().catch((error) => console.error('Could not clean up a pristine Exam after deletion', error))
+      const bank = await readBank(await registry, copy.id)
+      if (!bank) throw new Error('That Question Bank is unavailable on this device.')
+      const changed = bank.questions.filter((question) => previous.has(question.id) && previous.get(question.id) !== JSON.stringify(question))
+      return { bank, changed }
+    },
     async removePristine(id: string): Promise<boolean> {
       const bank = await readBank(await registry, id)
       if (!isPristineQuestionBank(bank)) return false

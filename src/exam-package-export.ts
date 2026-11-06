@@ -66,7 +66,13 @@ export async function examPackage({
   arrangement: Arrangement
   ownerOf: QuestionOwner
   loadMedia?: QuestionBankMediaLoader
-}): Promise<{ package: TestParrotPackage; files: Map<string, Uint8Array> }> {
+}): Promise<{
+  package: TestParrotPackage
+  files: Map<string, Uint8Array>
+  /** Each package-local Question and answer id, to the local id it came
+   *  from: what a Drive Copy keeps beside the package (ADR-0052). */
+  identities: Map<string, string>
+}> {
   const printed = orderedQuestions(exam, arrangement)
   const owners = await Promise.all(printed.map((question) => ownerOf(question.id)))
 
@@ -102,6 +108,11 @@ export async function examPackage({
     })
   })
   const questionBanks = [{ id: bankId, record: prepared.record }]
+  const identities = new Map<string, string>()
+  for (const [questionId, ids] of recordIds) {
+    identities.set(ids.question, questionId)
+    for (const [answerId, recordAnswerId] of ids.answers) identities.set(recordAnswerId, answerId)
+  }
 
   // A Multipart question travels as a bare position. Its Parts' answer order, answer
   // columns and Work Space are not carried yet — Exam Record 0.1.0 keys
@@ -183,6 +194,7 @@ export async function examPackage({
       exams: [examRecord],
     },
     files: prepared.files,
+    identities,
   }
 }
 

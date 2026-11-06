@@ -138,6 +138,7 @@ import {
   CircleDot,
   Crop,
   FileType2,
+  FolderInput,
   FolderOpen,
   Gauge,
   Heading,
@@ -202,7 +203,7 @@ import { LibraryActionsContext, type LibraryActions, type NewKind } from './libr
 import { createLibraryService, type DeletionWarning, type EntryRef, type LibraryService, type LibrarySnapshot } from './library'
 import { LibraryPage } from './library-page'
 import { draggedRefs, folderHref, folderOfRoute, libraryViewOf } from './library-routes'
-import { NameDialog, TrashDialog } from './library-dialogs'
+import { MoveDialog, NameDialog, TrashDialog } from './library-dialogs'
 import { FolderPath } from './folder-path'
 import { BankPicker } from './bank-picker'
 import type { FolderRecord } from './resource-places'
@@ -210,6 +211,8 @@ import { UNTITLED_FOLDER } from './resource-places'
 import { AboutPage, PrivacyPage } from './site-pages'
 import { SettingsPage } from './settings-page'
 import { persistentStorageStatus, requestPersistentStorage, type PersistentStorageStatus } from './durable-storage'
+import { LIBRARY_CHANGED_EVENT, useDriveSync } from './drive/drive-sync-context'
+import { OpenFromDrivePage } from './drive/open-page'
 import { BankFileDropTarget } from './bank-file-drop'
 import { ImportsPage, WaitingImportPage } from './imports-page'
 import { QuestionBankExportDialog } from './question-bank-export-dialog'
@@ -2105,6 +2108,7 @@ function ExamEditor({
   // the export went ahead, and this stays until the teacher dismisses it.
   const [exportWarning, setExportWarning] = useState<string | null>(null)
   const [choosingExam, setChoosingExam] = useState(false)
+  const [movingExam, setMovingExam] = useState<{ parentId: string | null; folders: Map<string, FolderRecord> } | null>(null)
   const [documentMenu, setDocumentMenu] = useState<{
     kind: DocumentMenuKind
     point: MenuPoint
@@ -2663,7 +2667,6 @@ function ExamEditor({
                   placeholder="Untitled Exam"
                   onChange={(event) => store.setTitle(event.target.value)}
                 />
-                {library && <FolderPath library={library} resource={{ kind: 'exam', id: examId }} name={state.workingCopy.title} documentLoad />}
               </div>
               <nav className="document-menus" aria-label="Exam menus">
                 {DOCUMENT_MENUS.map((kind) => (
@@ -2830,6 +2833,15 @@ function ExamEditor({
             icon: <FolderOpen />,
             onSelect: () => setChoosingExam(true),
           },
+          ...(library ? [{
+            kind: 'action' as const,
+            label: 'Move…',
+            icon: <FolderInput />,
+            onSelect: () => {
+              void Promise.all([library.placeOf({ kind: 'exam', id: examId }), library.folders()])
+                .then(([parentId, folders]) => setMovingExam({ parentId, folders }))
+            },
+          }] : []),
           { kind: 'separator' },
           {
             kind: 'action',
@@ -2899,6 +2911,19 @@ function ExamEditor({
         disabled={isHistoricalBrowsing}
         onChange={(sides, inches, continuing) => store.setMargins(sides, inches, { continuing })}
         onClose={closeMarginsPanel}
+      />}
+
+      {movingExam && library && <MoveDialog
+        title={`Move “${state.workingCopy.title || 'Untitled Exam'}”`}
+        moving={[{ kind: 'exam', id: examId }]}
+        from={[movingExam.parentId]}
+        startAt={movingExam.parentId}
+        folders={movingExam.folders}
+        onCancel={() => setMovingExam(null)}
+        onMove={async (folderId) => {
+          await library.move([{ kind: 'exam', id: examId }], folderId)
+          setMovingExam(null)
+        }}
       />}
 
       {choosingExam && <ResourcePicker
@@ -3314,6 +3339,7 @@ export default function App({
   const route = useRoute()
   const search = useLocationSearch()
   const [library] = useState(() => givenLibrary ?? createLibraryService({ workspaces, bankWorkspaces }))
+  const drive = useDriveSync()
   const [exams, setExams] = useState(initialExams)
   /** The bank the Question Bank page is showing and the address it was read
    *  for — at start by `main.tsx`, and after that on every arrival, so a bank
@@ -3462,6 +3488,7 @@ export default function App({
   const trashDialog = trashing && <TrashDialog
     name={trashing.name}
     warning={trashing.warning}
+    refs={[trashing.ref]}
     onCancel={() => setTrashing(null)}
     onConfirm={async () => {
       const { ref } = trashing
@@ -3516,6 +3543,15 @@ export default function App({
     setStorageStatus(currentStorageStatus)
     setExams(next.entries.flatMap((entry) => (entry.kind === 'exam' && !library.inTrash(entry, next.folders) ? [entry.exam] : [])))
   }, [library])
+  // Sync with Drive changed the Library underneath this page (ADR-0052).
+  useEffect(() => {
+    const onChanged = () => {
+      if (window.location.pathname === '/question-bank') window.location.reload()
+      else void refreshLibrary()
+    }
+    window.addEventListener(LIBRARY_CHANGED_EVENT, onChanged)
+    return () => window.removeEventListener(LIBRARY_CHANGED_EVENT, onChanged)
+  }, [refreshLibrary])
   // The Library reads the account afresh each time a page of it is shown:
   // moving between it and a Question Bank page loads no document, so what it
   // had is out of date once a bank is edited. It also sweeps away untouched
@@ -3550,6 +3586,10 @@ export default function App({
       else if (kind === 'import') {
         rememberImportFolder(folderId)
         openImport()
+      } else if (kind === 'drive') {
+        void drive?.addFromDrive(folderId).then((count) => {
+          if (count > 0 && onLibrary) void refreshLibrary()
+        }).catch(() => undefined)
       } else {
         rememberImportFolder(folderId)
         navigate('/get-started/convert')
@@ -3642,6 +3682,7 @@ export default function App({
     if (route === '/about') return <>{globalChrome}<AboutPage persistentStorage={storageStatus} /></>
     if (route === '/privacy') return <>{globalChrome}<PrivacyPage persistentStorage={storageStatus} /></>
     if (route === '/settings') return <>{globalChrome}<SettingsPage persistentStorage={storageStatus} /></>
+    if (route === '/open') return <>{globalChrome}<OpenFromDrivePage persistentStorage={storageStatus} /></>
     // A device that has never been here gets the front door instead of empty
     // shelves; the same page stays reachable at /welcome afterwards.
     const firstVisit = exams.length === 0 && bankCollection.length === 0 && !hasBeenWelcomed()

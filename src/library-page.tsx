@@ -713,6 +713,7 @@ export function LibraryPage({
         <TrashDialog
           name={trashing.entries.length === 1 ? trashing.entries[0]!.name : null}
           warning={trashing.warning}
+          refs={trashing.entries.map(refOf)}
           onCancel={() => setTrashing(null)}
           onConfirm={async () => {
             const refs = trashing.entries.map(refOf)

@@ -4,7 +4,7 @@
 import { createContext, type DragEvent } from 'react'
 
 /** What the New menu can make. Whatever it makes lands in `folderId`. */
-export type NewKind = 'folder' | 'exam' | 'bank' | 'import' | 'convert'
+export type NewKind = 'folder' | 'exam' | 'bank' | 'import' | 'convert' | 'drive'
 export type LibraryActions = {
   onNew: (kind: NewKind, folderId: string | null) => void
   /** Things dropped on a breadcrumb move into its Folder. */

@@ -6,6 +6,7 @@ import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'rea
 import { createPortal } from 'react-dom'
 import { ChevronRight, Folder, House, X } from 'lucide-react'
 import type { DeletionWarning, EntryRef } from './library'
+import { useDriveSync, type SharingSummary } from './drive/drive-sync-context'
 import { folderPath, inTrash, isWithin, TRASH_DAYS, type FolderRecord } from './resource-places'
 
 /** A modal that takes the keyboard: focus starts inside, Tab stays inside,
@@ -202,14 +203,27 @@ function countsText(warning: Pick<DeletionWarning, 'folders' | 'exams' | 'banks'
 
 /** Before Trash: what is going, by kind, and which Exams use Questions from
  *  any bank among it. */
-export function TrashDialog({ name, warning, onCancel, onConfirm }: {
+export function TrashDialog({ name, warning, refs = [], onCancel, onConfirm }: {
   /** The one thing being deleted, or null for several. */
   name: string | null
   warning: DeletionWarning
+  /** What is being deleted, so a Shared Resource can say what Trash does to
+   *  its Drive Copy (ADR-0052). */
+  refs?: readonly EntryRef[]
   onCancel: () => void
   onConfirm: () => Promise<void>
 }) {
   const [busy, setBusy] = useState(false)
+  const drive = useDriveSync()
+  const [sharing, setSharing] = useState<SharingSummary | null>(null)
+  useEffect(() => {
+    if (!drive?.connected || refs.length === 0) return
+    let current = true
+    void drive.sharing(refs).then((summary) => { if (current) setSharing(summary) }).catch(() => undefined)
+    return () => { current = false }
+    // Asked once, when the dialog opens.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   const [error, setError] = useState<string | null>(null)
   const total = warning.exams + warning.banks + warning.folders
   const title = name ? `Delete “${name}”?` : `Delete ${total} items?`
@@ -228,6 +242,19 @@ export function TrashDialog({ name, warning, onCancel, onConfirm }: {
         </p>
         <ul>{warning.affectedExams.map((exam) => <li key={exam.id}>{exam.title}</li>)}</ul>
       </>}
+      {sharing && sharing.owned > 0 && (
+        <p className="trash-drive-warning">
+          {sharing.counted && sharing.people > 0
+            ? `Shared with ${sharing.people === 1 ? '1 person' : `${sharing.people} people`}. `
+            : ''}
+          You own {sharing.owned === 1 && total <= 1 ? 'it' : 'what is going'} in Google Drive, so your next sync moves {sharing.owned === 1 ? 'its Drive Copy' : 'their Drive Copies'} to Drive’s trash, for everyone {sharing.counted && sharing.people > 0 ? 'it’s shared with' : 'you shared it with'}.
+        </p>
+      )}
+      {sharing && sharing.othersOwn > 0 && (
+        <p className="trash-drive-warning">
+          {sharing.othersOwn === 1 ? 'One of these is' : `${sharing.othersOwn} of these are`} shared with you by someone else, so this only removes {sharing.othersOwn === 1 ? 'it' : 'them'} from your Library. Their file in Drive stays.
+        </p>
+      )}
       {error && <p className="dialog-save-error" role="alert">{error}</p>}
       <footer className="destructive-dialog-actions">
         <button type="button" className="secondary-button" disabled={busy} onClick={onCancel}>Cancel</button>

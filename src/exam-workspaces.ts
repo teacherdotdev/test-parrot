@@ -482,6 +482,36 @@ export function createExamWorkspaceService(options: { now?: () => Date; createId
         throw error
       }
     },
+    /**
+     * Writes an Exam that came down from its Drive Copy (ADR-0052): its saved
+     * state and Working Copy both become `saved`, its Export History stays,
+     * and it is marked modified now. An Exam new to this browser is made at
+     * `parentId`. Returns its last modified time.
+     */
+    async applyDriveCopy(id: string, saved: Omit<AuthoringState, 'dirty'>, parentId: string | null): Promise<string> {
+      const timestamp = now().toISOString()
+      if (await service.exists(id)) {
+        const backend = createIndexedDBAuthoringBackend(examDatabaseName(id))
+        try {
+          await backend.commitCanonicalProjection({ working: { ...saved, dirty: false }, saved })
+        } finally {
+          await backend.close()
+        }
+        await touch(id, { lastModifiedAt: timestamp })
+        const summary = await service.summary(id)
+        return summary?.lastModifiedAt ?? timestamp
+      }
+      const backend = createIndexedDBAuthoringBackend(examDatabaseName(id))
+      try {
+        await backend.initialize(saved, { ...saved, dirty: false })
+      } finally {
+        await backend.close()
+      }
+      await transact(EXAM_STORE, 'readwrite', (transaction) => {
+        transaction.objectStore(EXAM_STORE).put({ id, createdAt: timestamp, lastOpenedAt: timestamp, lastModifiedAt: timestamp, parentId } satisfies ExamSummary)
+      })
+      return timestamp
+    },
     async removePristine(id: string): Promise<boolean> {
       // Reading a missing Exam's database would create it again.
       if (!await service.exists(id)) return false
